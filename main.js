@@ -163,7 +163,7 @@
       ['Kill curves', 'MIC', 'High-titre phage stocks']]
   ], 4300);
 
-  initStepper(doc.querySelector('.sec-card'), [
+  initStepper(doc.getElementById('card-sec'), [
     ['1 · Infect', 'A culture of bacteria is infected with phage. Each phage attaches to a cell and injects its genome, and the cells are harvested at a chosen time after infection.', null, 5200],
     ['2 · Lyse', 'The cells are lysed under native conditions so protein complexes stay intact. The lysate is a mixture of everything the cell holds: large multi-protein complexes, smaller complexes and single proteins. Each colour is a different protein.', null, 6800],
     ['3 · Load the column', 'The lysate is injected onto a size-exclusion column, a tube packed with porous beads. Single proteins can enter the pores and take a long path through the column. Large complexes cannot, so they take a short path.', null, 7600],
@@ -172,6 +172,25 @@
     ['6 · Measure by MS/MS', 'The peptides are ionised into the mass spectrometer. In data-independent acquisition (DIA), the instrument steps through the mass range in windows and fragments everything in each window, so the proteins in every fraction are identified and quantified.', null, 7600],
     ['7 · Elution profiles', 'Combining the fractions gives every protein an elution profile: its abundance from the largest fraction to the smallest. Proteins in the same complex rise and fall together, as A, B and C do here, while a protein on its own, like F, elutes late at single-protein size.', null, 8200],
     ['8 · The interactome', 'Deconvolution compares the profiles of every protein. Proteins that co-elute, particularly earlier than their single-protein size predicts, are grouped into complexes and joined by edges. The result is a map of protein interactions, the interactome, which is the goal of the experiment.', null, 10000, true]
+  ], 7000);
+
+  initStepper(doc.getElementById('card-gg'), [
+    ['1 · Build the parts', 'A phage genome is split into fragments, and each fragment is cloned on its own plasmid. Every part carries Type IIS restriction sites that define unique four-base overhangs at its ends.', null, 6200],
+    ['2 · Edit by PCR', 'Any part can be changed before assembly. PCR with modified primers can alter the sequence, add a tag, or attach the Type IIS sites to a new fragment, which makes it easy to build variants of a genome.', null, 7000],
+    ['3 · Pool in one tube', 'The plasmids go into a single tube with a Type IIS restriction enzyme and DNA ligase. All the parts of the genome are assembled together in one reaction.', null, 6400],
+    ['4 · Digest', 'The enzyme cuts each plasmid just outside its fragment, releasing the fragment from the backbone. Every fragment now has unique single-stranded overhangs, and each overhang matches only the neighbouring fragment.', null, 8000],
+    ['5 · Ligate', 'Matching overhangs pair, so the fragments join in the correct order and the ligase seals them into one continuous genome. The sites are lost in the joined product, so it is not cut again, which drives the reaction toward the complete assembly.', null, 8200],
+    ['6 · Transform and make phage', 'The assembled genome is introduced into host cells. If it is correct, the cell reads it, makes phage proteins and assembles new phage particles that lyse the cell and form plaques. A plaque shows that the assembled genome is functional.', null, 10000]
+  ], 7000);
+
+  initStepper(doc.getElementById('card-apms'), [
+    ['1 · Unknown proteins', 'Many phage genes encode proteins with no known function. Their sequences give few clues, so one way to learn what they do is to find out what they interact with.', null, 6200],
+    ['2 · Add an affinity tag', 'To pull a protein out of the cell together with its partners, the unknown gene is fused to an affinity tag such as Twin-Strep or FLAG and placed on an expression plasmid.', null, 6600],
+    ['3 · Overexpress in the host', 'The plasmid is introduced into host cells and the tagged protein is overexpressed. Inside the cell it assembles with its interaction partners, in their native complexes.', null, 7600],
+    ['4 · Capture on resin', 'The cells are lysed gently so that complexes stay intact, and the lysate is passed over resin that binds the tag. The tagged protein sticks to the resin and brings its partners with it, while unrelated proteins flow through.', null, 8400],
+    ['5 · Wash and elute', 'Unbound and loosely bound proteins are washed away. The tagged protein and its partners are then released from the resin, still in complex, in a small volume.', null, 8200],
+    ['6 · LC-MS/MS', 'The eluate is digested into peptides, separated by LC and analysed by tandem mass spectrometry, which identifies and quantifies every protein that was pulled down.', null, 7800],
+    ['7 · Interactions', 'Proteins enriched over a negative-control purification are candidate interaction partners. Scoring them statistically, for example with SAINT, gives an interaction map around the unknown protein, and its partners hint at what it does.', null, 10000, true]
   ], 7000);
 
   /* ---------- hero scene: molecules, bacteria and phage infections ---------- */

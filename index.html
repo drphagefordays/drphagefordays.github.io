@@ -286,6 +286,348 @@
       </div>
     </section>
 
+    <section class="section section-alt" id="assembly">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Phage engineering</p>
+          <h2>How a phage genome is built by Golden Gate assembly</h2>
+          <p class="section-sub">A whole genome is assembled from plasmid-based fragments in a single reaction, then transformed into host cells to produce phage.</p>
+        </div>
+        <div class="infection-card sec-card reveal" id="card-gg">
+          <div class="sec-scroll">
+            <svg class="sec gg s1" viewBox="0 0 760 360" role="img" aria-label="Animated six-step diagram of Golden Gate assembly of a phage genome: parts on plasmids, editing by PCR, pooling with a Type IIS enzyme and ligase, digestion, ligation into one genome, and transformation into host cells to make phage">
+<g class="sc sc1">
+<text x="380" y="30" text-anchor="middle" class="t-b">Phage genome, divided into five parts</text>
+<rect class="gg-seg fa" style="--i:0" x="80" y="44" width="118" height="20" rx="4"/>
+<path class="lead" d="M139 68V126"/>
+<g class="gg-plasmid" style="--i:0"><circle class="gg-ring" cx="139" cy="180" r="40"/><path class="gg-insert fa" d="M108.4 154.3A40 40 0 0 1 169.6 154.3"/><path class="gg-site" d="M115.1 159.9L101.6 148.6"/><path class="gg-site" d="M162.9 159.9L176.4 148.6"/><text class="t-sm" x="139" y="240" text-anchor="middle">Plasmid 1</text></g>
+<rect class="gg-seg fb" style="--i:1" x="200" y="44" width="118" height="20" rx="4"/>
+<path class="lead" d="M259 68V126"/>
+<g class="gg-plasmid" style="--i:1"><circle class="gg-ring" cx="259" cy="180" r="40"/><path class="gg-insert fb" d="M228.4 154.3A40 40 0 0 1 289.6 154.3"/><path class="gg-site" d="M235.1 159.9L221.6 148.6"/><path class="gg-site" d="M282.9 159.9L296.4 148.6"/><text class="t-sm" x="259" y="240" text-anchor="middle">Plasmid 2</text></g>
+<rect class="gg-seg fc" style="--i:2" x="320" y="44" width="118" height="20" rx="4"/>
+<path class="lead" d="M379 68V126"/>
+<g class="gg-plasmid" style="--i:2"><circle class="gg-ring" cx="379" cy="180" r="40"/><path class="gg-insert fc" d="M348.4 154.3A40 40 0 0 1 409.6 154.3"/><path class="gg-site" d="M355.1 159.9L341.6 148.6"/><path class="gg-site" d="M402.9 159.9L416.4 148.6"/><text class="t-sm" x="379" y="240" text-anchor="middle">Plasmid 3</text></g>
+<rect class="gg-seg fd" style="--i:3" x="440" y="44" width="118" height="20" rx="4"/>
+<path class="lead" d="M499 68V126"/>
+<g class="gg-plasmid" style="--i:3"><circle class="gg-ring" cx="499" cy="180" r="40"/><path class="gg-insert fd" d="M468.4 154.3A40 40 0 0 1 529.6 154.3"/><path class="gg-site" d="M475.1 159.9L461.6 148.6"/><path class="gg-site" d="M522.9 159.9L536.4 148.6"/><text class="t-sm" x="499" y="240" text-anchor="middle">Plasmid 4</text></g>
+<rect class="gg-seg fe" style="--i:4" x="560" y="44" width="118" height="20" rx="4"/>
+<path class="lead" d="M619 68V126"/>
+<g class="gg-plasmid" style="--i:4"><circle class="gg-ring" cx="619" cy="180" r="40"/><path class="gg-insert fe" d="M588.4 154.3A40 40 0 0 1 649.6 154.3"/><path class="gg-site" d="M595.1 159.9L581.6 148.6"/><path class="gg-site" d="M642.9 159.9L656.4 148.6"/><text class="t-sm" x="619" y="240" text-anchor="middle">Plasmid 5</text></g>
+<path class="gg-site" d="M84 306v14"/><text class="t-sm" x="98" y="318">Type IIS site: marks where the enzyme will cut</text>
+<text x="380" y="346" text-anchor="middle" class="t-sm t-muted">Each part of the genome is cloned on its own plasmid.</text>
+</g>
+<g class="sc sc2">
+<g class="gg-plasmid" style="--i:0"><circle class="gg-ring" cx="130" cy="180" r="44"/><path class="gg-insert fc" d="M96.3 151.7A44 44 0 0 1 163.7 151.7"/><path class="gg-site" d="M103.7 157.9L88.9 145.5"/><path class="gg-site" d="M156.3 157.9L171.1 145.5"/><text class="t-sm" x="130" y="244" text-anchor="middle">Part 3 on its plasmid</text></g>
+<path class="flowarrow" d="M192 180H246M241 175l5 5-5 5"/>
+<circle class="gg-cycle" cx="300" cy="180" r="42"/>
+<path class="gg-tube" d="M284 138H316V196Q316 214 300 214Q284 214 284 196Z"/><path class="fit" d="M280 134H320V140H280Z"/><path class="gg-liq" d="M284 170H316V196Q316 214 300 214Q284 214 284 196Z"/>
+<text x="300" y="250" text-anchor="middle" class="t-b">PCR</text><text x="300" y="266" text-anchor="middle" class="t-sm t-muted">primers carry the edit and the sites</text>
+<path class="flowarrow" d="M350 180H420M415 175l5 5-5 5"/>
+<g class="gg-mod"><rect class="gg-seg fc" x="440" y="171" width="220" height="18" rx="4"/><path class="gg-site" d="M440 158v44M660 158v44"/><polygon class="gg-star" points="540.0,168.0 542.9,176.0 551.4,176.3 544.8,181.5 547.1,189.7 540.0,185.0 532.9,189.7 535.2,181.5 528.6,176.3 537.1,176.0"/><path class="lead" d="M540 196V214"/><text x="540" y="228" text-anchor="middle" class="t-sm t-b">edit: mutation, tag or new sequence</text><path class="lead" d="M660 206L640 238"/><text x="640" y="252" text-anchor="middle" class="t-sm t-muted">Type IIS sites added by the primers</text><text x="550" y="148" text-anchor="middle" class="t-b">Modified part 3</text></g>
+<text x="380" y="322" text-anchor="middle" class="t-sm t-muted">Any part can be edited, swapped or built by PCR before assembly.</text>
+</g>
+<g class="sc sc3">
+<path class="gg-tube" d="M340 70H420V250Q420 292 380 292Q340 292 340 250Z"/><path class="gg-liq" d="M340 130H420V250Q420 292 380 292Q340 292 340 250Z"/><path class="fit" d="M334 64H426V72H334Z"/>
+<g class="gg-jig" style="--k:0"><g class="gg-plasmid-s"><circle class="gg-ring" cx="362" cy="168" r="13"/><path class="gg-insert fa" d="M352.0 159.6A13 13 0 0 1 372.0 159.6" style="stroke-width:4"/><path class="gg-site" d="M354.2 161.5L349.9 157.8"/><path class="gg-site" d="M369.8 161.5L374.1 157.8"/></g></g>
+<g class="gg-jig" style="--k:1"><g class="gg-plasmid-s"><circle class="gg-ring" cx="398" cy="182" r="13"/><path class="gg-insert fb" d="M388.0 173.6A13 13 0 0 1 408.0 173.6" style="stroke-width:4"/><path class="gg-site" d="M390.2 175.5L385.9 171.8"/><path class="gg-site" d="M405.8 175.5L410.1 171.8"/></g></g>
+<g class="gg-jig" style="--k:2"><g class="gg-plasmid-s"><circle class="gg-ring" cx="356" cy="214" r="13"/><path class="gg-insert fc" d="M346.0 205.6A13 13 0 0 1 366.0 205.6" style="stroke-width:4"/><path class="gg-site" d="M348.2 207.5L343.9 203.8"/><path class="gg-site" d="M363.8 207.5L368.1 203.8"/></g></g>
+<g class="gg-jig" style="--k:3"><g class="gg-plasmid-s"><circle class="gg-ring" cx="392" cy="236" r="13"/><path class="gg-insert fd" d="M382.0 227.6A13 13 0 0 1 402.0 227.6" style="stroke-width:4"/><path class="gg-site" d="M384.2 229.5L379.9 225.8"/><path class="gg-site" d="M399.8 229.5L404.1 225.8"/></g></g>
+<g class="gg-jig" style="--k:4"><g class="gg-plasmid-s"><circle class="gg-ring" cx="372" cy="262" r="13"/><path class="gg-insert fe" d="M362.0 253.6A13 13 0 0 1 382.0 253.6" style="stroke-width:4"/><path class="gg-site" d="M364.2 255.5L359.9 251.8"/><path class="gg-site" d="M379.8 255.5L384.1 251.8"/></g></g>
+<g class="gg-enz" style="--i:0"><path class="pd" d="M210 180L233.2 164.3A28 28 0 1 0 233.2 195.7Z"/><circle class="gg-eye" cx="208" cy="168" r="2.6"/></g>
+<path class="flowarrow gg-flow" d="M246 180H330M325 175l5 5-5 5"/>
+<text x="210" y="232" text-anchor="middle" class="t-b">Type IIS restriction enzyme</text><text x="210" y="248" text-anchor="middle" class="t-sm t-muted">e.g. BsaI or BsmBI: cuts outside its site</text>
+<g class="gg-enz" style="--i:1"><circle class="pb" cx="536" cy="180" r="19"/><circle class="pb" cx="568" cy="180" r="19"/><path class="gg-eye2" d="M548 172q4 -6 8 0M548 188q4 6 8 0"/></g>
+<path class="flowarrow gg-flow" d="M510 180H430M435 175l-5 5 5 5"/>
+<text x="552" y="232" text-anchor="middle" class="t-b">DNA ligase</text><text x="552" y="248" text-anchor="middle" class="t-sm t-muted">joins matching ends</text>
+<text x="380" y="322" text-anchor="middle" class="t-b">One tube, one reaction</text><text x="380" y="338" text-anchor="middle" class="t-sm t-muted">all parts and both enzymes are mixed together</text>
+</g>
+<g class="sc sc4">
+<path class="gg-ring gg-bb" d="M158.9 245.3A26 26 0 1 1 119.1 245.3"/>
+<g class="gg-frag" style="--i:0"><rect class="gg-seg fa" x="91" y="150" width="96" height="18" rx="3"/><rect class="gg-tagbox" x="159" y="171" width="34" height="13" rx="3"/><text class="gg-tagt" x="176" y="181" text-anchor="middle">AATG</text></g>
+<g transform="translate(113 232)"><g class="gg-scis"><path d="M-6 -6L6 6M-6 6L6 -6"/><circle cx="-6" cy="7" r="2.4"/><circle cx="6" cy="7" r="2.4"/></g></g>
+<g transform="translate(165 232)"><g class="gg-scis"><path d="M-6 -6L6 6M-6 6L6 -6"/><circle cx="-6" cy="7" r="2.4"/><circle cx="6" cy="7" r="2.4"/></g></g>
+<path class="gg-ring gg-bb" d="M278.9 245.3A26 26 0 1 1 239.1 245.3"/>
+<g class="gg-frag" style="--i:1"><rect class="gg-seg fb" x="211" y="150" width="96" height="18" rx="3"/><rect class="gg-tagbox" x="205" y="134" width="34" height="13" rx="3"/><text class="gg-tagt" x="222" y="144" text-anchor="middle">AATG</text><rect class="gg-tagbox" x="279" y="171" width="34" height="13" rx="3"/><text class="gg-tagt" x="296" y="181" text-anchor="middle">GCTT</text></g>
+<g transform="translate(233 232)"><g class="gg-scis"><path d="M-6 -6L6 6M-6 6L6 -6"/><circle cx="-6" cy="7" r="2.4"/><circle cx="6" cy="7" r="2.4"/></g></g>
+<g transform="translate(285 232)"><g class="gg-scis"><path d="M-6 -6L6 6M-6 6L6 -6"/><circle cx="-6" cy="7" r="2.4"/><circle cx="6" cy="7" r="2.4"/></g></g>
+<path class="gg-ring gg-bb" d="M398.9 245.3A26 26 0 1 1 359.1 245.3"/>
+<g class="gg-frag" style="--i:2"><rect class="gg-seg fc" x="331" y="150" width="96" height="18" rx="3"/><rect class="gg-tagbox" x="325" y="134" width="34" height="13" rx="3"/><text class="gg-tagt" x="342" y="144" text-anchor="middle">GCTT</text><rect class="gg-tagbox" x="399" y="171" width="34" height="13" rx="3"/><text class="gg-tagt" x="416" y="181" text-anchor="middle">CGAC</text></g>
+<g transform="translate(353 232)"><g class="gg-scis"><path d="M-6 -6L6 6M-6 6L6 -6"/><circle cx="-6" cy="7" r="2.4"/><circle cx="6" cy="7" r="2.4"/></g></g>
+<g transform="translate(405 232)"><g class="gg-scis"><path d="M-6 -6L6 6M-6 6L6 -6"/><circle cx="-6" cy="7" r="2.4"/><circle cx="6" cy="7" r="2.4"/></g></g>
+<path class="gg-ring gg-bb" d="M518.9 245.3A26 26 0 1 1 479.1 245.3"/>
+<g class="gg-frag" style="--i:3"><rect class="gg-seg fd" x="451" y="150" width="96" height="18" rx="3"/><rect class="gg-tagbox" x="445" y="134" width="34" height="13" rx="3"/><text class="gg-tagt" x="462" y="144" text-anchor="middle">CGAC</text><rect class="gg-tagbox" x="519" y="171" width="34" height="13" rx="3"/><text class="gg-tagt" x="536" y="181" text-anchor="middle">TAGG</text></g>
+<g transform="translate(473 232)"><g class="gg-scis"><path d="M-6 -6L6 6M-6 6L6 -6"/><circle cx="-6" cy="7" r="2.4"/><circle cx="6" cy="7" r="2.4"/></g></g>
+<g transform="translate(525 232)"><g class="gg-scis"><path d="M-6 -6L6 6M-6 6L6 -6"/><circle cx="-6" cy="7" r="2.4"/><circle cx="6" cy="7" r="2.4"/></g></g>
+<path class="gg-ring gg-bb" d="M638.9 245.3A26 26 0 1 1 599.1 245.3"/>
+<g class="gg-frag" style="--i:4"><rect class="gg-seg fe" x="571" y="150" width="96" height="18" rx="3"/><rect class="gg-tagbox" x="565" y="134" width="34" height="13" rx="3"/><text class="gg-tagt" x="582" y="144" text-anchor="middle">TAGG</text></g>
+<g transform="translate(593 232)"><g class="gg-scis"><path d="M-6 -6L6 6M-6 6L6 -6"/><circle cx="-6" cy="7" r="2.4"/><circle cx="6" cy="7" r="2.4"/></g></g>
+<g transform="translate(645 232)"><g class="gg-scis"><path d="M-6 -6L6 6M-6 6L6 -6"/><circle cx="-6" cy="7" r="2.4"/><circle cx="6" cy="7" r="2.4"/></g></g>
+<text x="139" y="304" text-anchor="middle" class="t-sm t-muted">plasmid backbone</text>
+<text x="380" y="330" text-anchor="middle" class="t-b">Each cut leaves a unique four-base overhang.</text><text x="380" y="346" text-anchor="middle" class="t-sm t-muted">An overhang pairs only with its neighbouring fragment.</text>
+</g>
+<g class="sc sc5">
+<text x="380" y="106" text-anchor="middle" class="t-b">Unified phage genome</text>
+<rect class="gg-seg gg-join fa" style="--sx:-44px" x="80" y="130" width="118" height="26" rx="4"/>
+<rect class="gg-seg gg-join fb" style="--sx:-22px" x="200" y="130" width="118" height="26" rx="4"/>
+<rect class="gg-seg gg-join fc" style="--sx:0px" x="320" y="130" width="118" height="26" rx="4"/>
+<rect class="gg-seg gg-join fd" style="--sx:22px" x="440" y="130" width="118" height="26" rx="4"/>
+<rect class="gg-seg gg-join fe" style="--sx:44px" x="560" y="130" width="118" height="26" rx="4"/>
+<g class="gg-seal"><path class="gg-site" d="M200 124v38"/><rect class="gg-tagbox" x="183" y="166" width="34" height="13" rx="3"/><text class="gg-tagt" x="200" y="176" text-anchor="middle">AATG</text><path class="gg-site" d="M320 124v38"/><rect class="gg-tagbox" x="303" y="166" width="34" height="13" rx="3"/><text class="gg-tagt" x="320" y="176" text-anchor="middle">GCTT</text><path class="gg-site" d="M440 124v38"/><rect class="gg-tagbox" x="423" y="166" width="34" height="13" rx="3"/><text class="gg-tagt" x="440" y="176" text-anchor="middle">CGAC</text><path class="gg-site" d="M560 124v38"/><rect class="gg-tagbox" x="543" y="166" width="34" height="13" rx="3"/><text class="gg-tagt" x="560" y="176" text-anchor="middle">TAGG</text><text x="380" y="206" text-anchor="middle" class="t-sm t-muted">Matching overhangs pair; ligase seals each join.</text></g>
+<circle class="gg-cycle" cx="250" cy="262" r="20"/><text x="282" y="258" class="t-sm t-b">Digestion and ligation</text><text x="282" y="274" class="t-sm t-muted">repeat in cycles until the parts are joined</text>
+<text x="380" y="326" text-anchor="middle" class="t-b">The sites are lost in the joined genome, so it is not cut again.</text><text x="380" y="342" text-anchor="middle" class="t-sm t-muted">That drives the reaction toward the complete assembly.</text>
+</g>
+<g class="sc sc6">
+<text x="115" y="146" text-anchor="middle" class="t-b">Assembled genome</text>
+<g class="gg-dna"><rect class="gg-seg fa" x="40" y="162" width="28" height="14" rx="2"/><rect class="gg-seg fb" x="70" y="162" width="28" height="14" rx="2"/><rect class="gg-seg fc" x="100" y="162" width="28" height="14" rx="2"/><rect class="gg-seg fd" x="130" y="162" width="28" height="14" rx="2"/><rect class="gg-seg fe" x="160" y="162" width="28" height="14" rx="2"/></g>
+<path class="flowarrow" d="M200 169H244M239 164l5 5-5 5"/><text x="222" y="196" text-anchor="middle" class="t-sm t-muted">transform</text>
+<text x="365" y="106" text-anchor="middle" class="t-b">Host cell</text>
+<rect class="cell gg-cell" x="250" y="120" width="230" height="116" rx="58"/>
+<use class="gg-prog" href="#phage" x="286" y="150" width="20" height="31" style="--i:0;--ex:120px"/>
+<use class="gg-prog" href="#phage" x="324" y="172" width="20" height="31" style="--i:1;--ex:150px"/>
+<use class="gg-prog" href="#phage" x="362" y="146" width="20" height="31" style="--i:2;--ex:130px"/>
+<use class="gg-prog" href="#phage" x="400" y="174" width="20" height="31" style="--i:3;--ex:160px"/>
+<use class="gg-prog" href="#phage" x="438" y="150" width="20" height="31" style="--i:4;--ex:140px"/>
+<path class="flowarrow gg-late" d="M490 178H538M533 173l5 5-5 5"/>
+<circle class="gg-lawn" cx="624" cy="180" r="68"/><circle class="gg-rim" cx="624" cy="180" r="74"/>
+<circle class="gg-plq" style="--i:0" cx="598" cy="152" r="9"/>
+<circle class="gg-plq" style="--i:1" cx="640" cy="146" r="6"/>
+<circle class="gg-plq" style="--i:2" cx="652" cy="188" r="11"/>
+<circle class="gg-plq" style="--i:3" cx="612" cy="206" r="7"/>
+<circle class="gg-plq" style="--i:4" cx="586" cy="188" r="5"/>
+<circle class="gg-plq" style="--i:5" cx="634" cy="222" r="6"/>
+<circle class="gg-plq" style="--i:6" cx="666" cy="160" r="4"/>
+<text x="624" y="270" text-anchor="middle" class="t-b">Plaques</text><text x="624" y="286" text-anchor="middle" class="t-sm t-muted">clear spots = functional phage</text>
+</g>
+            </svg>
+          </div>
+          <div class="stepper" role="group" aria-label="Golden Gate assembly steps">
+<button class="step-btn" type="button" data-step="1" aria-pressed="true"><b>1</b> Parts</button>
+<button class="step-btn" type="button" data-step="2" aria-pressed="false"><b>2</b> Edit by PCR</button>
+<button class="step-btn" type="button" data-step="3" aria-pressed="false"><b>3</b> Pool</button>
+<button class="step-btn" type="button" data-step="4" aria-pressed="false"><b>4</b> Digest</button>
+<button class="step-btn" type="button" data-step="5" aria-pressed="false"><b>5</b> Ligate</button>
+<button class="step-btn" type="button" data-step="6" aria-pressed="false"><b>6</b> Transform</button>
+            <button class="play-btn" type="button" aria-label="Pause animation"></button>
+          </div>
+          <div class="step-caption" aria-live="polite">
+            <h4>1 · Build the parts</h4>
+            <p>A phage genome is split into fragments, and each fragment is cloned on its own plasmid. Every part carries Type IIS restriction sites that define unique four-base overhangs at its ends.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="apms">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Proteomics</p>
+          <h2>How AP-MS finds the partners of unknown phage proteins</h2>
+          <p class="section-sub">Many phage proteins have no known function. Pulling a tagged protein out of the cell together with its interaction partners shows what it works with.</p>
+        </div>
+        <div class="infection-card sec-card reveal" id="card-apms">
+          <div class="sec-scroll">
+            <svg class="sec apm s1" viewBox="0 0 760 360" role="img" aria-label="Animated seven-step diagram of affinity purification mass spectrometry: unknown phage proteins, adding an affinity tag, overexpression, capture on resin with interaction partners, wash and elution, LC-MS/MS, and scoring interactions against a control">
+              <defs>
+                <g id="apt"><circle class="pa" cx="0" cy="0" r="10"/><rect class="ap-tag" x="-3" y="-21" width="6" height="12" rx="2"/></g>
+                <g id="apc"><circle class="pa" cx="0" cy="0" r="10"/><rect class="ap-tag" x="-3" y="-21" width="6" height="12" rx="2"/><circle class="pb" cx="14" cy="6" r="7"/><circle class="pc" cx="-9" cy="14" r="7"/></g>
+                <g id="apd"><circle class="pa" cx="0" cy="0" r="10"/><rect class="ap-tag" x="-3" y="-21" width="6" height="12" rx="2"/><circle class="pd" cx="14" cy="5" r="7"/></g>
+              </defs>
+<g class="sc sc1">
+<text x="386" y="64" text-anchor="middle" class="t-h">A phage genome</text>
+<path class="lead" d="M30 157H742"/>
+<polygon class="ap-gene pa" points="40,140 109,140 118,157 109,174 40,174"/>
+<text x="76" y="162" text-anchor="middle" class="t-sm t-b">capsid</text>
+<polygon class="ap-gene ap-unk pf" points="122,140 153,140 162,157 153,174 122,174"/>
+<text x="139" y="163" text-anchor="middle" class="t-b ap-q">?</text>
+<polygon class="ap-gene ap-unk pf" points="166,140 209,140 218,157 209,174 166,174"/>
+<text x="189" y="163" text-anchor="middle" class="t-b ap-q">?</text>
+<polygon class="ap-gene pb" points="222,140 279,140 288,157 279,174 222,174"/>
+<text x="252" y="162" text-anchor="middle" class="t-sm t-b">tail</text>
+<polygon class="ap-gene ap-unk pf" points="292,140 321,140 330,157 321,174 292,174"/>
+<text x="308" y="163" text-anchor="middle" class="t-b ap-q">?</text>
+<polygon class="ap-gene ap-unk pf ap-target" points="334,140 373,140 382,157 373,174 334,174"/>
+<text x="355" y="163" text-anchor="middle" class="t-b ap-q">?</text>
+<polygon class="ap-gene pc" points="386,140 441,140 450,157 441,174 386,174"/>
+<text x="415" y="162" text-anchor="middle" class="t-sm t-b">lysin</text>
+<polygon class="ap-gene ap-unk pf" points="454,140 487,140 496,157 487,174 454,174"/>
+<text x="472" y="163" text-anchor="middle" class="t-b ap-q">?</text>
+<polygon class="ap-gene ap-unk pf" points="500,140 545,140 554,157 545,174 500,174"/>
+<text x="524" y="163" text-anchor="middle" class="t-b ap-q">?</text>
+<polygon class="ap-gene ap-unk pf" points="558,140 589,140 598,157 589,174 558,174"/>
+<text x="575" y="163" text-anchor="middle" class="t-b ap-q">?</text>
+<polygon class="ap-gene ap-unk pf" points="602,140 639,140 648,157 639,174 602,174"/>
+<text x="622" y="163" text-anchor="middle" class="t-b ap-q">?</text>
+<polygon class="ap-gene ap-unk pf" points="652,140 687,140 696,157 687,174 652,174"/>
+<text x="671" y="163" text-anchor="middle" class="t-b ap-q">?</text>
+<polygon class="ap-gene ap-unk pf" points="700,140 723,140 732,157 723,174 700,174"/>
+<text x="713" y="163" text-anchor="middle" class="t-b ap-q">?</text>
+<text x="358" y="112" text-anchor="middle" class="t-b">protein of interest</text><path class="lead" d="M358 118V136"/>
+<polygon class="ap-gene pa" points="130,222 191,222 200,234 191,246 130,246"/><text x="212" y="236" class="t-sm">known function (capsid, tail, lysin)</text>
+<polygon class="ap-gene ap-unk pf" points="130,252 191,252 200,264 191,276 130,276"/><text x="212" y="266" class="t-sm">unknown function</text>
+<text x="380" y="316" text-anchor="middle" class="t-b">Many phage proteins have no known function.</text><text x="380" y="334" text-anchor="middle" class="t-sm t-muted">Finding out what each one interacts with is a way to learn what it does.</text>
+</g>
+<g class="sc sc2">
+<circle class="gg-ring" cx="250" cy="190" r="80"/>
+<path class="gg-insert ap-prom" d="M212.4 119.4A80 80 0 0 1 238.9 110.8"/>
+<path class="gg-insert ap-genearc" d="M247.2 110.0A80 80 0 0 1 324.2 220.0"/>
+<g class="ap-tagarc"><path class="gg-insert ap-tagc" d="M319.3 230.0A80 80 0 0 1 285.1 261.9"/></g>
+<path class="gg-insert ap-prom" d="M274.7 266.1A80 80 0 0 1 258.4 269.6"/>
+<text x="293" y="165" text-anchor="middle" class="t-b ap-q">?</text>
+<path class="lead" d="M225 114L170 96"/><text x="166" y="100" text-anchor="end" class="t-sm">Promoter</text>
+<path class="lead" d="M316 144L384 116"/><text x="390" y="120" class="t-sm t-b">Unknown phage gene</text>
+<path class="lead" d="M305 249L374 262"/><text x="380" y="262" class="t-sm t-b">Affinity tag</text><text x="380" y="278" class="t-sm t-muted">Twin-Strep or FLAG</text>
+<text x="250" y="300" text-anchor="middle" class="t-sm t-muted">Expression plasmid</text>
+<path class="flowarrow gg-flow" d="M338 190H520M515 185l5 5-5 5"/><text x="430" y="182" text-anchor="middle" class="t-sm t-muted">expressed</text>
+<g transform="translate(600 190) scale(1.9)"><use href="#apt"/></g><text x="600" y="246" text-anchor="middle" class="t-b">Tagged protein</text>
+</g>
+<g class="sc sc3">
+<rect class="cell" x="110" y="100" width="540" height="190" rx="95"/><text x="380" y="86" text-anchor="middle" class="t-b">Host cell</text>
+<g class="ap-plasmid"><circle class="gg-ring" cx="190" cy="195" r="26"/><path class="gg-insert ap-tagc" d="M170.1 178.3A26 26 0 0 1 209.9 178.3"/></g><text x="190" y="242" text-anchor="middle" class="t-sm t-muted">plasmid</text>
+<path class="flowarrow gg-flow" d="M232 195H306M301 190l5 5-5 5"/><text x="272" y="182" text-anchor="middle" class="t-sm t-muted">overexpressed</text>
+<use href="#cxs" x="300" y="190" class="ap-bgp"/>
+<use href="#cxs" x="378" y="196" class="ap-bgp"/>
+<use href="#cxs" x="470" y="130" class="ap-bgp"/>
+<use href="#cxs" x="520" y="196" class="ap-bgp"/>
+<use href="#cxs" x="600" y="140" class="ap-bgp"/>
+<use href="#cxs" x="420" y="128" class="ap-bgp"/>
+<use href="#cxs" x="330" y="120" class="ap-bgp"/>
+<use href="#cxs" x="590" y="246" class="ap-bgp"/>
+<use href="#cxs" x="410" y="262" class="ap-bgp"/>
+<use href="#cxs" x="506" y="270" class="ap-bgp"/>
+<use href="#cxs" x="630" y="210" class="ap-bgp"/>
+<use href="#cxs" x="300" y="250" class="ap-bgp"/>
+<g transform="translate(340 150)"><g class="ap-cx" style="--i:0"><use href="#apc"/></g></g>
+<g transform="translate(420 176)"><g class="ap-cx" style="--i:1"><use href="#apd"/></g></g>
+<g transform="translate(500 148)"><g class="ap-cx" style="--i:2"><use href="#apc"/></g></g>
+<g transform="translate(580 192)"><g class="ap-cx" style="--i:3"><use href="#apd"/></g></g>
+<g transform="translate(362 236)"><g class="ap-cx" style="--i:4"><use href="#apc"/></g></g>
+<g transform="translate(456 244)"><g class="ap-cx" style="--i:5"><use href="#apd"/></g></g>
+<g transform="translate(540 238)"><g class="ap-cx" style="--i:6"><use href="#apc"/></g></g>
+<g transform="translate(130 326)"><use href="#apt"/></g><text x="150" y="330" class="t-sm">tagged bait</text>
+<circle class="pb" cx="272" cy="326" r="6"/><text x="284" y="330" class="t-sm">interaction partners</text>
+<use href="#cxs" x="450" y="326"/><text x="462" y="330" class="t-sm">unrelated host proteins</text>
+</g>
+<g class="sc sc4">
+<rect class="sample-box" x="345" y="10" width="80" height="26" rx="6"/><text x="385" y="27" text-anchor="middle" class="t-sm">Lysate</text><path class="pipe" d="M385 36V62"/>
+<rect class="fit" x="345" y="62" width="80" height="10" rx="3"/><rect class="col-body" x="300" y="72" width="170" height="196" rx="12"/>
+<rect class="fit" x="345" y="268" width="80" height="10" rx="3"/>
+<circle class="ap-bead" cx="412" cy="108" r="16"/><path class="ap-rec" d="M396 108h-9m0 0l-4 -4m4 4l-4 4"/>
+<circle class="ap-bead" cx="416" cy="152" r="16"/><path class="ap-rec" d="M400 152h-9m0 0l-4 -4m4 4l-4 4"/>
+<circle class="ap-bead" cx="410" cy="198" r="16"/><path class="ap-rec" d="M394 198h-9m0 0l-4 -4m4 4l-4 4"/>
+<circle class="ap-bead" cx="414" cy="242" r="16"/><path class="ap-rec" d="M398 242h-9m0 0l-4 -4m4 4l-4 4"/>
+<path class="pipe" d="M385 278V296"/><path class="pipe" d="M448 268V292H540V304"/>
+<path class="ap-beaker" d="M508 304H572V338H508Z"/><text x="540" y="356" text-anchor="middle" class="t-sm t-muted">flow-through</text>
+<g transform="translate(364 108)"><g class="ap-grab" style="--i:0;--sx:-20px"><g transform="scale(.8)"><use href="#apc"/></g></g></g>
+<g transform="translate(368 152)"><g class="ap-grab" style="--i:1;--sx:-10px"><g transform="scale(.8)"><use href="#apd"/></g></g></g>
+<g transform="translate(362 198)"><g class="ap-grab" style="--i:2;--sx:0px"><g transform="scale(.8)"><use href="#apc"/></g></g></g>
+<g transform="translate(366 242)"><g class="ap-grab" style="--i:3;--sx:10px"><g transform="scale(.8)"><use href="#apd"/></g></g></g>
+<g transform="translate(430 80)"><g class="ap-thru" style="--k:0"><use href="#cxs"/></g></g>
+<g transform="translate(444 80)"><g class="ap-thru" style="--k:1"><use href="#cxs"/></g></g>
+<g transform="translate(436 80)"><g class="ap-thru" style="--k:2"><use href="#cxs"/></g></g>
+<g transform="translate(448 80)"><g class="ap-thru" style="--k:3"><use href="#cxs"/></g></g>
+<g transform="translate(440 80)"><g class="ap-thru" style="--k:4"><use href="#cxs"/></g></g>
+<g transform="translate(446 80)"><g class="ap-thru" style="--k:5"><use href="#cxs"/></g></g>
+<text x="490" y="128" class="t-sm t-b">Resin binds the tag</text><text x="490" y="144" class="t-sm t-muted">Strep-Tactin or anti-FLAG</text><path class="lead" d="M486 150H434"/>
+<text x="288" y="170" text-anchor="end" class="t-sm t-b">Bait and partners</text><text x="288" y="186" text-anchor="end" class="t-sm t-muted">stick to the resin</text>
+<text x="130" y="300" class="t-sm t-b">Unrelated proteins</text><text x="130" y="316" class="t-sm t-muted">pass straight through</text>
+</g>
+<g class="sc sc5">
+<rect class="fit" x="345" y="62" width="80" height="10" rx="3"/><rect class="col-body" x="300" y="72" width="170" height="196" rx="12"/>
+<rect class="fit" x="345" y="268" width="80" height="10" rx="3"/>
+<circle class="ap-bead" cx="412" cy="108" r="16"/><path class="ap-rec" d="M396 108h-9m0 0l-4 -4m4 4l-4 4"/>
+<circle class="ap-bead" cx="416" cy="152" r="16"/><path class="ap-rec" d="M400 152h-9m0 0l-4 -4m4 4l-4 4"/>
+<circle class="ap-bead" cx="410" cy="198" r="16"/><path class="ap-rec" d="M394 198h-9m0 0l-4 -4m4 4l-4 4"/>
+<circle class="ap-bead" cx="414" cy="242" r="16"/><path class="ap-rec" d="M398 242h-9m0 0l-4 -4m4 4l-4 4"/>
+<path class="pipe" d="M385 278V300"/>
+<path class="ap-tube" d="M355 300H415V340Q415 350 405 350H365Q355 350 355 340Z"/><rect class="ap-fill" x="357" y="318" width="56" height="30" rx="3"/>
+<text x="470" y="326" class="t-sm t-b">Eluate</text><text x="470" y="342" class="t-sm t-muted">bait + partners</text>
+<g transform="translate(350 128)"><g class="ap-rinse" style="--k:0;--tx:70px"><use href="#cxs"/></g></g>
+<g transform="translate(354 176)"><g class="ap-rinse" style="--k:1;--tx:90px"><use href="#cxs"/></g></g>
+<g transform="translate(346 222)"><g class="ap-rinse" style="--k:2;--tx:110px"><use href="#cxs"/></g></g>
+<g transform="translate(364 108)"><g class="ap-elute" style="--i:0;--ex:8px;--ey:218px"><g transform="scale(.8)"><use href="#apc"/></g></g></g>
+<g transform="translate(368 152)"><g class="ap-elute" style="--i:1;--ex:30px;--ey:174px"><g transform="scale(.8)"><use href="#apd"/></g></g></g>
+<g transform="translate(362 198)"><g class="ap-elute" style="--i:2;--ex:12px;--ey:142px"><g transform="scale(.8)"><use href="#apc"/></g></g></g>
+<g transform="translate(366 242)"><g class="ap-elute" style="--i:3;--ex:32px;--ey:98px"><g transform="scale(.8)"><use href="#apd"/></g></g></g>
+<path class="bufflow" d="M268 92V240M262 232l6 8 6-8"/><text x="268" y="262" text-anchor="middle" class="t-sm t-muted">buffer</text>
+<g class="ap-t1"><text x="490" y="122" class="t-sm t-b">Wash</text><text x="490" y="138" class="t-sm t-muted">unbound and loosely bound</text><text x="490" y="154" class="t-sm t-muted">proteins leave the column</text></g>
+<g class="ap-t2"><text x="490" y="122" class="t-sm t-b">Elute</text><text x="490" y="138" class="t-sm t-muted">bait and partners are released,</text><text x="490" y="154" class="t-sm t-muted">still in complex</text></g>
+</g>
+<g class="sc sc6">
+<rect class="tube-body" x="40" y="100" width="36" height="92" rx="5"/><g transform="translate(58 130) scale(.55)"><use href="#apc"/></g><g transform="translate(58 166) scale(.6)"><use href="#apd"/></g><text x="58" y="216" text-anchor="middle" class="t-b">Eluate</text>
+<path class="flowarrow gg-flow" d="M86 150H116M111 145l5 5-5 5"/>
+<g class="ap-pep" style="--i:0"><circle class="pa" cx="134" cy="128" r="3.2"/><circle class="pa" cx="143" cy="128" r="3.2"/><circle class="pa" cx="152" cy="128" r="3.2"/></g>
+<g class="ap-pep" style="--i:1"><circle class="pa" cx="167" cy="128" r="3.2"/><circle class="pa" cx="176" cy="128" r="3.2"/></g>
+<g class="ap-pep" style="--i:2"><circle class="pb" cx="134" cy="150" r="3.2"/><circle class="pb" cx="143" cy="150" r="3.2"/><circle class="pb" cx="152" cy="150" r="3.2"/></g>
+<g class="ap-pep" style="--i:3"><circle class="pb" cx="167" cy="150" r="3.2"/><circle class="pb" cx="176" cy="150" r="3.2"/></g>
+<g class="ap-pep" style="--i:4"><circle class="pc" cx="134" cy="172" r="3.2"/><circle class="pc" cx="143" cy="172" r="3.2"/><circle class="pc" cx="152" cy="172" r="3.2"/></g>
+<g class="ap-pep" style="--i:5"><circle class="pc" cx="167" cy="172" r="3.2"/><circle class="pc" cx="176" cy="172" r="3.2"/></g>
+<text x="162" y="216" text-anchor="middle" class="t-b">Digest</text><text x="162" y="232" text-anchor="middle" class="t-sm t-muted">into peptides</text>
+<path class="flowarrow gg-flow" d="M208 150H238M233 145l5 5-5 5"/>
+<path class="lc-tube" d="M252 118H330V134H252V150H330" style="stroke-width:7"/><path class="lc-flow ap-lcf" d="M252 118H330V134H252V150H330"/>
+<g class="ap-lcdots"><circle class="pa" r="2.6" style="--t:3.4s"/><circle class="pb" r="2.6" style="--t:3.9s;animation-delay:-1s"/><circle class="pc" r="2.6" style="--t:4.4s;animation-delay:-2s"/></g>
+<text x="291" y="216" text-anchor="middle" class="t-b">LC</text><text x="291" y="232" text-anchor="middle" class="t-sm t-muted">separates peptides</text>
+<path class="flowarrow gg-flow" d="M338 150H366M361 145l5 5-5 5"/>
+<rect class="ms-box" x="374" y="108" width="62" height="86" rx="10"/><rect class="ms-in" x="382" y="116" width="46" height="30" rx="5"/><rect class="ms-in" x="382" y="154" width="46" height="30" rx="5"/>
+<text x="405" y="216" text-anchor="middle" class="t-b">MS/MS</text><text x="405" y="232" text-anchor="middle" class="t-sm t-muted">identifies peptides</text>
+<path class="flowarrow gg-flow" d="M446 150H488M483 145l5 5-5 5"/>
+<text x="620" y="94" text-anchor="middle" class="t-h">Proteins identified</text>
+<g class="ap-row" style="--i:0"><circle class="pa" cx="512" cy="124" r="6"/><text x="526" y="128" class="t-sm">Bait</text><rect class="ap-bar2 pa" x="640" y="120" width="96" height="8" rx="4"/></g>
+<g class="ap-row" style="--i:1"><circle class="pb" cx="512" cy="152" r="6"/><text x="526" y="156" class="t-sm">Partner 1</text><rect class="ap-bar2 pb" x="640" y="148" width="70" height="8" rx="4"/></g>
+<g class="ap-row" style="--i:2"><circle class="pc" cx="512" cy="180" r="6"/><text x="526" y="184" class="t-sm">Partner 2</text><rect class="ap-bar2 pc" x="640" y="176" width="56" height="8" rx="4"/></g>
+<g class="ap-row" style="--i:3"><circle class="pd" cx="512" cy="208" r="6"/><text x="526" y="212" class="t-sm">Partner 3</text><rect class="ap-bar2 pd" x="640" y="204" width="40" height="8" rx="4"/></g>
+<g class="ap-row" style="--i:4"><circle class="pf" cx="512" cy="236" r="6"/><text x="526" y="240" class="t-sm">Other host proteins</text><rect class="ap-bar2 pf" x="640" y="232" width="64" height="8" rx="4"/></g>
+<text x="380" y="316" text-anchor="middle" class="t-sm t-muted">Every protein in the eluate is identified and quantified.</text>
+</g>
+<g class="sc sc7">
+<text x="190" y="50" text-anchor="middle" class="t-h">Enriched over control</text>
+<path class="axis" d="M50 84V250H340"/>
+<text transform="translate(34 168) rotate(-90)" text-anchor="middle" class="t-sm t-muted">abundance in eluate</text>
+<line class="ap-bar pa" style="--i:0" x1="82" x2="82" y1="250" y2="110"/>
+<line class="ap-bar ap-ctl" style="--i:0" x1="98" x2="98" y1="250" y2="244"/>
+<text x="90" y="268" text-anchor="middle" class="t-sm t-muted">Bait</text>
+<line class="ap-bar pb" style="--i:1" x1="142" x2="142" y1="250" y2="140"/>
+<line class="ap-bar ap-ctl" style="--i:1" x1="158" x2="158" y1="250" y2="241"/>
+<text x="150" y="268" text-anchor="middle" class="t-sm t-muted">P1</text>
+<line class="ap-bar pc" style="--i:2" x1="202" x2="202" y1="250" y2="162"/>
+<line class="ap-bar ap-ctl" style="--i:2" x1="218" x2="218" y1="250" y2="243"/>
+<text x="210" y="268" text-anchor="middle" class="t-sm t-muted">P2</text>
+<line class="ap-bar pd" style="--i:3" x1="262" x2="262" y1="250" y2="184"/>
+<line class="ap-bar ap-ctl" style="--i:3" x1="278" x2="278" y1="250" y2="240"/>
+<text x="270" y="268" text-anchor="middle" class="t-sm t-muted">P3</text>
+<line class="ap-bar pf" style="--i:4" x1="322" x2="322" y1="250" y2="192"/>
+<line class="ap-bar ap-ctl" style="--i:4" x1="338" x2="338" y1="250" y2="198"/>
+<text x="330" y="268" text-anchor="middle" class="t-sm t-muted">Host</text>
+<rect class="pa" x="64" y="296" width="12" height="8" rx="2"/><text x="82" y="304" class="t-sm">tagged bait purification</text><rect class="ap-ctlkey" x="236" y="296" width="12" height="8" rx="2"/><text x="254" y="304" class="t-sm">negative control</text>
+<text x="580" y="50" text-anchor="middle" class="t-h">Interaction map</text>
+<ellipse class="cxo ap-cxo" cx="580" cy="168" rx="108" ry="84"/>
+<path class="edge ap-edge" pathLength="1" d="M580 170L520 108M580 170L650 104M580 170L660 204"/>
+<g class="node ap-node" style="--n:1"><circle class="pb" cx="520" cy="108" r="17"/><text x="520" y="113" text-anchor="middle" class="t-b nl">P1</text></g>
+<g class="node ap-node" style="--n:2"><circle class="pc" cx="650" cy="104" r="17"/><text x="650" y="109" text-anchor="middle" class="t-b nl">P2</text></g>
+<g class="node ap-node" style="--n:3"><circle class="pd" cx="660" cy="204" r="17"/><text x="660" y="209" text-anchor="middle" class="t-b nl">P3</text></g>
+<g class="node ap-node" style="--n:0"><circle class="pa" cx="580" cy="170" r="24"/><text x="580" y="177" text-anchor="middle" class="t-b nl" style="font-size:18px">?</text></g>
+<text x="580" y="274" text-anchor="middle" class="t-b">Partners hint at the unknown protein&#8217;s function.</text><text x="580" y="292" text-anchor="middle" class="t-sm t-muted">Scored against negative controls (for example with SAINT).</text>
+</g>
+            </svg>
+          </div>
+          <div class="stepper" role="group" aria-label="AP-MS steps">
+<button class="step-btn" type="button" data-step="1" aria-pressed="true"><b>1</b> Unknown</button>
+<button class="step-btn" type="button" data-step="2" aria-pressed="false"><b>2</b> Tag</button>
+<button class="step-btn" type="button" data-step="3" aria-pressed="false"><b>3</b> Overexpress</button>
+<button class="step-btn" type="button" data-step="4" aria-pressed="false"><b>4</b> Capture</button>
+<button class="step-btn" type="button" data-step="5" aria-pressed="false"><b>5</b> Wash + elute</button>
+<button class="step-btn" type="button" data-step="6" aria-pressed="false"><b>6</b> LC-MS/MS</button>
+<button class="step-btn" type="button" data-step="7" aria-pressed="false"><b>7</b> Interactions</button>
+            <button class="play-btn" type="button" aria-label="Pause animation"></button>
+          </div>
+          <div class="step-caption" aria-live="polite">
+            <h4>1 · Unknown proteins</h4>
+            <p>Many phage genes encode proteins with no known function. Their sequences give few clues, so one way to learn what they do is to find out what they interact with.</p>
+            <a class="app-link" href="https://drphagefordays.github.io/fragpipe-saintpy-web/" target="_blank" rel="noopener" hidden>Score AP-MS interactions in saintPy Studio →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="section section-alt" id="proteomics">
       <div class="container">
         <div class="section-head reveal">
@@ -293,7 +635,7 @@
           <h2>How SEC-MS maps protein interactions</h2>
           <p class="section-sub">Size-exclusion chromatography keeps protein complexes intact and sorts them by size. Mass spectrometry then reads out which proteins are in each fraction, and the elution profiles reveal who interacts with whom.</p>
         </div>
-        <div class="infection-card sec-card reveal">
+        <div class="infection-card sec-card reveal" id="card-sec">
           <div class="sec-scroll">
             <svg class="sec s1" viewBox="0 0 760 360" role="img" aria-label="Animated eight-step diagram of an SEC-MS interactome experiment: phage infection of bacteria, lysis, loading a size-exclusion column, elution of complexes by size into fractions, digestion and LC, tandem mass spectrometry, elution profiles, and the inferred interactome network">
               <defs>
@@ -398,9 +740,9 @@
                 </g>
                 <rect class="fit" x="52" y="203" width="36" height="9" rx="3"/>
                 <path class="pipe" d="M70 212V224H690"/>
-                <text x="112" y="100" class="t-b">Large complexes</text>
-                <text x="112" y="116" class="t-sm t-muted">move fastest,</text>
-                <text x="112" y="132" class="t-sm t-muted">elute first.</text>
+                <text x="106" y="100" class="t-b">Large complexes</text>
+                <text x="106" y="116" class="t-sm t-muted">move fastest,</text>
+                <text x="106" y="132" class="t-sm t-muted">elute first.</text>
                 <path class="axis" d="M230 40V190H710"/>
                 <path class="trace" pathLength="1" d="M230 190H262C280 190 286 106 310 106C334 106 340 190 358 190H422C438 190 446 130 470 130C494 130 502 190 518 190H582C598 190 606 154 630 154C654 154 662 190 678 190H710"/>
                 <text transform="translate(222 118) rotate(-90)" text-anchor="middle" class="t-sm t-muted">UV signal</text>
