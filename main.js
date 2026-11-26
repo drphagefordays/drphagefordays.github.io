@@ -57,6 +57,8 @@
   var links = [].slice.call(doc.querySelectorAll('.nav a'));
   var map = {};
   links.forEach(function (a) { map[a.getAttribute('href').slice(1)] = a; });
+  // the whole Methods group (explainers and tools) keeps the "Methods" link highlighted
+  ['assembly', 'apms', 'proteomics', 'tools'].forEach(function (id) { if (map.principle) map[id] = map.principle; });
   if ('IntersectionObserver' in window) {
     var spy = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {

@@ -636,6 +636,13 @@ body::after {
 .apm .ap-cxo { opacity: 0; }
 .apm[data-step="7"] .ap-cxo { opacity: .8; transition: opacity .8s ease 2.6s; }
 
+/* ---------- tools section ---------- */
+.tool-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+.tool-grid .card { grid-column: auto; display: flex; flex-direction: column; }
+.tool-actions { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: auto; padding-top: 1.3rem; }
+.tool-actions .btn { padding: .6rem 1.05rem; font-size: .92rem; }
+@media (max-width: 760px) { .tool-grid { grid-template-columns: 1fr; } }
+
 @media (max-width: 700px) { .sec { min-width: 620px; } }
 
 /* ---------- responsive ---------- */
