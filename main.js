@@ -116,7 +116,7 @@
       ['Takeover', 'The cell’s transcription and translation machinery now reads phage genes, redirecting its resources to making new phages.',
         ['RNA-seq', 'Cappable-seq', 'TnSeq', 'AP-MS']],
       ['Assembly', 'New capsids, tails and genomes are made and put together into complete phages.',
-        ['SEC-DIA-MS', 'AlphaFold3', 'Functional characterization']],
+        ['SEC-DIA-MS', 'Functional characterization', 'AlphaFold3']],
       ['Lysis', 'Phage enzymes break open the cell and the new phages are released to infect their neighbours.',
         ['Kill curves', 'MIC', 'High-titre phage stocks']]
     ];
