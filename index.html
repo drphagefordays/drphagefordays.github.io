@@ -286,6 +286,133 @@
       </div>
     </section>
 
+    <section class="section section-alt" id="proteomics">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Proteomics</p>
+          <h2>How SEC-MS finds protein complexes</h2>
+          <p class="section-sub">Size-exclusion chromatography and mass spectrometry show which proteins travel together after infection.</p>
+        </div>
+        <div class="infection-card sec-card reveal">
+          <div class="sec-scroll">
+            <svg class="sec s1" viewBox="0 0 760 320" role="img" aria-label="Animated diagram of an SEC-MS workflow: an infected culture is lysed, separated by size on an HPLC column into fractions, digested peptides are separated by LC and measured by tandem mass spectrometry">
+              <defs><pattern id="beads" width="9" height="9" patternUnits="userSpaceOnUse"><circle cx="4.5" cy="4.5" r="1.6"/></pattern></defs>
+
+              <path class="flowline fl1" d="M70 40V22H257V40"/>
+              <path class="flowline fl2" d="M330 214H372M366 209l6 5-6 5"/>
+
+              <g class="st st-a">
+                <path class="flask" d="M56 40H84V76L118 160Q122 172 108 172H32Q18 172 22 160L56 76Z"/>
+                <path class="liquid" d="M29 132H111L118 160Q122 172 108 172H32Q18 172 22 160Z"/>
+                <g class="cells">
+                  <rect x="34" y="146" width="24" height="10" rx="5" transform="rotate(-18 46 151)"/>
+                  <rect x="66" y="140" width="24" height="10" rx="5" transform="rotate(22 78 145)"/>
+                  <rect x="46" y="158" width="24" height="10" rx="5"/>
+                  <rect x="82" y="156" width="22" height="9" rx="4.5" transform="rotate(-10 93 160)"/>
+                </g>
+                <g class="fphages">
+                  <use href="#phage" x="31" y="134" width="9" height="14"/>
+                  <use href="#phage" x="52" y="138" width="9" height="14"/>
+                  <use href="#phage" x="74" y="134" width="9" height="14"/>
+                  <use href="#phage" x="96" y="138" width="9" height="14"/>
+                  <use href="#phage" x="62" y="152" width="9" height="14"/>
+                </g>
+                <g class="prot">
+                  <circle class="p1" cx="40" cy="152" r="3"/><circle class="p1" cx="84" cy="164" r="4"/><circle class="p1" cx="98" cy="148" r="2.5"/>
+                  <circle class="p2" cx="66" cy="150" r="7"/><circle class="p2" cx="54" cy="164" r="4.5"/>
+                  <circle class="p3" cx="48" cy="142" r="2"/><circle class="p3" cx="104" cy="161" r="5"/><circle class="p3" cx="80" cy="142" r="3"/>
+                </g>
+                <text class="lbl" x="70" y="306">Culture</text>
+              </g>
+
+              <g class="st st-b">
+                <rect class="col" x="232" y="40" width="50" height="130" rx="8"/>
+                <rect class="col-beads" x="232" y="40" width="50" height="130" rx="8" fill="url(#beads)"/>
+                <g class="sp">
+                  <circle class="p2" cx="245" cy="48" r="5" style="--t:2.6s"/>
+                  <circle class="p1" cx="257" cy="48" r="3.4" style="--t:3.8s"/>
+                  <circle class="p3" cx="269" cy="48" r="2.2" style="--t:5.6s"/>
+                  <circle class="p2" cx="251" cy="48" r="4" style="--t:2.9s;animation-delay:-1.4s"/>
+                  <circle class="p1" cx="264" cy="48" r="2.8" style="--t:4.4s;animation-delay:-2.2s"/>
+                  <circle class="p3" cx="257" cy="48" r="1.8" style="--t:6s;animation-delay:-3s"/>
+                </g>
+                <path class="pipe" d="M257 170V182M197 182H317M197 182V189M221 182V189M245 182V189M269 182V189M293 182V189M317 182V189"/>
+                <g class="tube" style="--f:.25;--i:0"><rect class="tube-body" x="190" y="190" width="14" height="48" rx="3"/><rect class="fill" x="191.5" y="191.5" width="11" height="45" rx="2"/></g>
+                <g class="tube" style="--f:.6;--i:1"><rect class="tube-body" x="214" y="190" width="14" height="48" rx="3"/><rect class="fill" x="215.5" y="191.5" width="11" height="45" rx="2"/></g>
+                <g class="tube" style="--f:.9;--i:2"><rect class="tube-body" x="238" y="190" width="14" height="48" rx="3"/><rect class="fill" x="239.5" y="191.5" width="11" height="45" rx="2"/></g>
+                <g class="tube" style="--f:.55;--i:3"><rect class="tube-body" x="262" y="190" width="14" height="48" rx="3"/><rect class="fill" x="263.5" y="191.5" width="11" height="45" rx="2"/></g>
+                <g class="tube" style="--f:.35;--i:4"><rect class="tube-body" x="286" y="190" width="14" height="48" rx="3"/><rect class="fill" x="287.5" y="191.5" width="11" height="45" rx="2"/></g>
+                <g class="tube" style="--f:.2;--i:5"><rect class="tube-body" x="310" y="190" width="14" height="48" rx="3"/><rect class="fill" x="311.5" y="191.5" width="11" height="45" rx="2"/></g>
+                <path class="baseline" d="M190 284H324"/>
+                <path class="trace" pathLength="1" d="M190 284H198C202 284 204 262 208 262S214 284 220 284H234C238 284 242 266 246 266S254 284 260 284H272C277 284 280 272 284 272S291 284 296 284H306C310 284 312 278 315 278S320 284 324 284"/>
+                <text class="lbl" x="257" y="306">SEC fractions</text>
+              </g>
+
+              <g class="st st-c">
+                <path class="lc-tube" d="M392 70H478V92H392V114H478V136H392V158H478V196H520"/>
+                <path class="lc-flow" d="M392 70H478V92H392V114H478V136H392V158H478V196H520"/>
+                <g class="pep">
+                  <circle class="p1" r="2.6" style="--t:5s;animation-delay:0s"/>
+                  <circle class="p2" r="2.6" style="--t:5.6s;animation-delay:-1.1s"/>
+                  <circle class="p3" r="2.6" style="--t:6.2s;animation-delay:-2.4s"/>
+                  <circle class="p1" r="2.6" style="--t:5.3s;animation-delay:-3.2s"/>
+                  <circle class="p2" r="2.6" style="--t:6.6s;animation-delay:-4.1s"/>
+                </g>
+                <text class="lbl" x="440" y="306">LC peptides</text>
+              </g>
+
+              <g class="st st-d">
+                <path class="needle" d="M520 196L536 187M520 196L536 205"/>
+                <g class="ions"><circle class="p2" r="1.7"/><circle class="p2" r="1.7"/><circle class="p2" r="1.7"/><circle class="p2" r="1.7"/></g>
+                <rect class="ms-box" x="548" y="150" width="72" height="92" rx="10"/>
+                <rect class="ms-in" x="558" y="166" width="52" height="14" rx="3"/>
+                <rect class="ms-in" x="558" y="190" width="52" height="14" rx="3"/>
+                <rect class="ms-in" x="558" y="214" width="52" height="14" rx="3"/>
+                <g class="wins">
+                  <rect class="win" x="642" y="92" width="26" height="148" style="animation-delay:0s"/>
+                  <rect class="win" x="668" y="92" width="26" height="148" style="animation-delay:.8s"/>
+                  <rect class="win" x="694" y="92" width="26" height="148" style="animation-delay:1.6s"/>
+                  <rect class="win" x="720" y="92" width="26" height="148" style="animation-delay:2.4s"/>
+                </g>
+                <path class="axis" d="M640 92V240H750"/>
+                <g class="bars">
+                  <line class="frag" x1="647" x2="647" y1="240" y2="206" style="--i:0"/>
+                  <line class="pre" x1="654" x2="654" y1="240" y2="130" style="--i:1"/>
+                  <line class="frag" x1="658" x2="658" y1="240" y2="188" style="--i:2"/>
+                  <line class="frag" x1="666" x2="666" y1="240" y2="214" style="--i:3"/>
+                  <line class="pre" x1="678" x2="678" y1="240" y2="100" style="--i:4"/>
+                  <line class="frag" x1="686" x2="686" y1="240" y2="176" style="--i:5"/>
+                  <line class="frag" x1="692" x2="692" y1="240" y2="208" style="--i:6"/>
+                  <line class="frag" x1="700" x2="700" y1="240" y2="198" style="--i:7"/>
+                  <line class="pre" x1="706" x2="706" y1="240" y2="150" style="--i:8"/>
+                  <line class="frag" x1="712" x2="712" y1="240" y2="184" style="--i:9"/>
+                  <line class="frag" x1="720" x2="720" y1="240" y2="210" style="--i:10"/>
+                  <line class="frag" x1="726" x2="726" y1="240" y2="196" style="--i:11"/>
+                  <line class="pre" x1="732" x2="732" y1="240" y2="118" style="--i:12"/>
+                  <line class="frag" x1="740" x2="740" y1="240" y2="204" style="--i:13"/>
+                  <line class="frag" x1="746" x2="746" y1="240" y2="214" style="--i:14"/>
+                </g>
+                <text class="lbl small" x="695" y="258">m/z</text>
+                <text class="lbl" x="650" y="306">MS/MS</text>
+              </g>
+            </svg>
+          </div>
+          <div class="stepper" role="group" aria-label="SEC-MS workflow steps">
+            <button class="step-btn" type="button" data-step="1" aria-pressed="true"><b>1</b> Infect</button>
+            <button class="step-btn" type="button" data-step="2" aria-pressed="false"><b>2</b> Lyse</button>
+            <button class="step-btn" type="button" data-step="3" aria-pressed="false"><b>3</b> Fractionate</button>
+            <button class="step-btn" type="button" data-step="4" aria-pressed="false"><b>4</b> Separate</button>
+            <button class="step-btn" type="button" data-step="5" aria-pressed="false"><b>5</b> Measure</button>
+            <button class="play-btn" type="button" aria-label="Pause animation"></button>
+          </div>
+          <div class="step-caption" aria-live="polite">
+            <h4>Infect</h4>
+            <p>A bacterial culture is infected with phage, and the cells are harvested at a chosen time after infection.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <div class="helix" aria-hidden="true"></div>
     <section class="section" id="experience">
       <div class="container">

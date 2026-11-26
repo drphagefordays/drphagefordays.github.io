@@ -101,60 +101,71 @@
     });
   });
 
-  /* ---------- infection sequence stepper ---------- */
-  var scene = doc.querySelector('.scene');
-  if (scene) {
-    var btns = [].slice.call(doc.querySelectorAll('.step-btn'));
-    var capT = doc.getElementById('step-title'), capP = doc.getElementById('step-text');
-    var playBtn = doc.getElementById('step-play');
-    var capTools = doc.getElementById('step-tools');
-    var copy = [
-      ['Adsorption', 'The phage binds receptors on the bacterial surface. Mycobacteria add a thick, waxy envelope that the phage must then get through.',
-        ['Host-range screening', 'Plaque assays', 'Smooth / rough morphotypes']],
-      ['Injection', 'The tail punctures the envelope and the phage genome is released into the cell.',
-        ['Genome sequencing and assembly', 'Golden Gate', 'Gibson / HiFi', 'BRED']],
-      ['Takeover', 'The cell’s transcription and translation machinery now reads phage genes, redirecting its resources to making new phages.',
-        ['RNA-seq', 'Cappable-seq', 'TnSeq', 'AP-MS']],
-      ['Assembly', 'New capsids, tails and genomes are made and put together into complete phages.',
-        ['SEC-DIA-MS', 'Functional characterization', 'AlphaFold3']],
-      ['Lysis', 'Phage enzymes break open the cell and the new phages are released to infect their neighbours.',
-        ['Kill curves', 'MIC', 'High-titre phage stocks']]
-    ];
+  /* ---------- step-through animations (infection sequence, SEC-MS workflow) ---------- */
+  function initStepper(card, copy, interval) {
+    if (!card) return;
+    var scene = card.querySelector('svg'), N = copy.length;
+    var btns = [].slice.call(card.querySelectorAll('.step-btn'));
+    var capEl = card.querySelector('.step-caption');
+    var capT = capEl.querySelector('h4'), capP = capEl.querySelector('p');
+    var playBtn = card.querySelector('.play-btn'), capTools = card.querySelector('.step-tools');
     var cur = 1, timer = null, inView = false, userPaused = false;
-    var setStep = function (n) {
+    function setStep(n) {
       cur = n;
-      for (var i = 1; i <= 5; i++) scene.classList.toggle('s' + i, i <= n);
+      scene.setAttribute('data-step', String(n));
+      for (var i = 1; i <= N; i++) scene.classList.toggle('s' + i, i <= n);
       btns.forEach(function (b) { b.setAttribute('aria-pressed', String(+b.getAttribute('data-step') === n)); });
       capT.textContent = copy[n - 1][0]; capP.textContent = copy[n - 1][1];
-      if (capTools) {
+      if (capTools && copy[n - 1][2]) {
         capTools.textContent = '';
         copy[n - 1][2].forEach(function (t) { var s = doc.createElement('span'); s.className = 'chip'; s.textContent = t; capTools.appendChild(s); });
       }
-    };
-    var sync = function () {
+    }
+    function sync() {
       var should = inView && !userPaused && !reduce;
-      if (should && !timer) timer = setInterval(function () { setStep(cur % 5 + 1); }, 4300);
+      if (should && !timer) timer = setInterval(function () { setStep(cur % N + 1); }, interval);
       else if (!should && timer) { clearInterval(timer); timer = null; }
-      var live = doc.querySelector('.step-caption');
-      if (live) live.setAttribute('aria-live', timer ? 'off' : 'polite'); // avoid screen-reader chatter while auto-playing
+      capEl.setAttribute('aria-live', timer ? 'off' : 'polite'); // avoid screen-reader chatter while auto-playing
       playBtn.classList.toggle('paused', !timer);
       playBtn.setAttribute('aria-label', timer ? 'Pause animation' : 'Play animation');
-    };
+    }
     btns.forEach(function (b) {
       b.addEventListener('click', function () { userPaused = true; setStep(+b.getAttribute('data-step')); sync(); });
     });
     playBtn.addEventListener('click', function () { userPaused = !!timer; sync(); });
     setStep(1);
     if ('IntersectionObserver' in window) {
-      scene.classList.add('pre');
+      var intro = scene.classList.contains('scene'); // the infection scene has a landing intro
+      if (intro) scene.classList.add('pre');
       new IntersectionObserver(function (en) {
         inView = en[0].isIntersecting;
-        if (inView) setTimeout(function () { scene.classList.remove('pre'); }, 150);
+        if (inView && intro) setTimeout(function () { scene.classList.remove('pre'); }, 150);
         sync();
       }, { threshold: 0.35 }).observe(scene);
     }
     sync();
   }
+
+  initStepper(doc.querySelector('.infection-card:not(.sec-card)'), [
+    ['Adsorption', 'The phage binds receptors on the bacterial surface. Mycobacteria add a thick, waxy envelope that the phage must then get through.',
+      ['Host-range screening', 'Plaque assays', 'Smooth / rough morphotypes']],
+    ['Injection', 'The tail punctures the envelope and the phage genome is released into the cell.',
+      ['Genome sequencing and assembly', 'Golden Gate', 'Gibson / HiFi', 'BRED']],
+    ['Takeover', 'The cell’s transcription and translation machinery now reads phage genes, redirecting its resources to making new phages.',
+      ['RNA-seq', 'Cappable-seq', 'TnSeq', 'AP-MS']],
+    ['Assembly', 'New capsids, tails and genomes are made and put together into complete phages.',
+      ['SEC-DIA-MS', 'Functional characterization', 'AlphaFold3']],
+    ['Lysis', 'Phage enzymes break open the cell and the new phages are released to infect their neighbours.',
+      ['Kill curves', 'MIC', 'High-titre phage stocks']]
+  ], 4300);
+
+  initStepper(doc.querySelector('.sec-card'), [
+    ['Infect', 'A bacterial culture is infected with phage, and the cells are harvested at a chosen time after infection.'],
+    ['Lyse', 'The cells are lysed under native conditions so that protein complexes stay intact, leaving a mixture of host and phage proteins of every size.'],
+    ['Fractionate by size', 'Size-exclusion chromatography on an HPLC system separates the lysate by size. Large complexes elute first and small proteins last, and the eluate is collected as fractions.'],
+    ['Separate peptides', 'Each fraction is digested into peptides, which are separated on a reverse-phase LC column by a rising solvent gradient.'],
+    ['Measure by MS/MS', 'Peptides are ionised into the mass spectrometer. In data-independent acquisition (DIA), everything in each m/z window is fragmented in turn, so every peptide in every fraction is measured. Proteins that peak in the same fractions are candidate members of the same complex.']
+  ], 5600);
 
   /* ---------- hero scene: molecules, bacteria and phage infections ---------- */
   var canvas = doc.getElementById('net');
