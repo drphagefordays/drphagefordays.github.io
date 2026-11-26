@@ -1,0 +1,22 @@
+{
+  "_help": "Entries ORCID cannot describe, and overrides. An entry here replaces any ORCID work with the same title. To hide an ORCID work, add its DOI (lowercase) to exclude_dois. rank orders entries within a year: 0 = first, 1 = article, 2 = review, 3 = other.",
+  "exclude_dois": [],
+  "entries": [
+    {
+      "title": "Mechanisms of Mycobacteriophage Transcription Modulation and Host Shutdown",
+      "year": 2026,
+      "rank": 0,
+      "type": "other",
+      "tag": "In prep",
+      "meta_html": "<strong>Parker, D. R.</strong>, Fossati, A., et al. <em>In preparation.</em>"
+    },
+    {
+      "title": "Engineering Bacteriophage for Improved Biosensing and Therapeutics",
+      "year": 2024,
+      "rank": 3,
+      "type": "other",
+      "tag": "Thesis",
+      "meta_html": "<strong>Parker, D. R.</strong> Ph.D. dissertation, Cornell University Graduate School. ISBN 9798382840758."
+    }
+  ]
+}

@@ -13,3 +13,14 @@ Light/dark theme (follows the OS, remembered), glass header, animated aurora and
 
 ## Hosting
 Any static host works, e.g. GitHub Pages: push these files to a repository and enable Pages on the main branch.
+
+## Publications update (monthly)
+The Publications list is rebuilt automatically on the 1st of each month by `.github/workflows/update-publications.yml`,
+which runs `scripts/update_publications.py`. It reads the public ORCID record, fetches each paper's details from Crossref
+and rewrites the list in `index.html` (between the `pubs:start` / `pubs:end` markers). It commits only if something changed.
+
+- **Add a paper:** make sure it is on your ORCID record; it appears after the next run (or run the workflow by hand from the Actions tab).
+- **Entries ORCID cannot describe** (thesis details, work in preparation) and **hidden papers** live in `data/publications_manual.json`.
+  An entry there replaces any ORCID work with the same title; add a DOI to `exclude_dois` to hide a paper.
+- **Run locally:** `python scripts/update_publications.py` (Python 3, no extra packages).
+- If a run fails (ORCID or Crossref unreachable) it stops without touching the page, and GitHub emails a failure notice.
