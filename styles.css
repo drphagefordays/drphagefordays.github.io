@@ -360,75 +360,156 @@ body::after {
 .tools-label { margin: 0 0 .6rem; font-size: .7rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
 .step-tools { justify-content: center; margin-top: 0; }
 
-/* ---------- SEC-MS workflow ---------- */
+/* ---------- SEC-MS interactome workflow ---------- */
 .sec-scroll { overflow-x: auto; overflow-y: hidden; }
-.sec { display: block; width: 100%; max-width: 820px; height: auto; margin: 0 auto; overflow: visible; fill: none; stroke: var(--accent); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
-.sec .st { opacity: .28; transition: opacity .6s; }
-.sec.s3 .st-a, .sec.s4 .st-a, .sec.s5 .st-a, .sec.s4 .st-b, .sec.s5 .st-b, .sec.s5 .st-c { opacity: .6; }
-.sec[data-step="1"] .st-a, .sec[data-step="2"] .st-a, .sec[data-step="3"] .st-b, .sec[data-step="4"] .st-c, .sec[data-step="5"] .st-d { opacity: 1; }
-.sec .lbl { fill: var(--muted); stroke: none; font: 500 11px var(--font-body); letter-spacing: .06em; text-anchor: middle; }
-.sec .lbl.small { font-size: 9.5px; }
-.sec circle.p1, .sec circle.p2, .sec circle.p3 { stroke-width: .9; }
-.sec circle.p1 { fill: color-mix(in srgb, var(--accent) 50%, transparent); stroke: var(--accent); }
-.sec circle.p2 { fill: color-mix(in srgb, var(--accent-2) 50%, transparent); stroke: var(--accent-2); }
-.sec circle.p3 { fill: color-mix(in srgb, var(--muted) 45%, transparent); stroke: var(--muted); }
+.sec { --pa: var(--accent-2); --pb: var(--accent); --pc: #d99a2b; --pd: #d9627f; --pe: #3f8fd9; --pf: var(--muted);
+  display: block; width: 100%; max-width: 860px; height: auto; margin: 0 auto; overflow: visible; fill: none; stroke: var(--accent); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+[data-theme="dark"] .sec { --pc: #f0b85a; --pd: #f08aa3; --pe: #6db3f2; }
+.sec text { fill: var(--ink); stroke: none; font: 500 12.5px var(--font-body); }
+.sec .t-sm { font-size: 12px; } .sec .t-muted { fill: var(--muted); } .sec .t-b { font-weight: 600; }
+.sec .t-h { font: 600 11.5px var(--font-body); letter-spacing: .1em; text-transform: uppercase; fill: var(--accent); }
+/* standalone selectors on purpose: <use> clones do not match rules that need a .sec ancestor */
+.pa, .pb, .pc, .pd, .pe, .pf { stroke-width: 1; }
+.pa { fill: color-mix(in srgb, var(--pa) 55%, transparent); stroke: var(--pa); }
+.pb { fill: color-mix(in srgb, var(--pb) 55%, transparent); stroke: var(--pb); }
+.pc { fill: color-mix(in srgb, var(--pc) 55%, transparent); stroke: var(--pc); }
+.pd { fill: color-mix(in srgb, var(--pd) 55%, transparent); stroke: var(--pd); }
+.pe { fill: color-mix(in srgb, var(--pe) 55%, transparent); stroke: var(--pe); }
+.pf { fill: color-mix(in srgb, var(--pf) 45%, transparent); stroke: var(--pf); }
+.sec .xa { fill: var(--pa); } .sec .xb { fill: var(--pb); } .sec .xc { fill: var(--pc); } .sec .xd { fill: var(--pd); } .sec .xe { fill: var(--pe); } .sec .xf { fill: var(--pf); }
 
-.sec .flowline { stroke-dasharray: 5 5; opacity: .2; transition: opacity .5s; animation: dash 1s linear infinite; }
-.sec[data-step="3"] .fl1, .sec[data-step="4"] .fl2 { opacity: .9; }
+.sec .sc { opacity: 0; visibility: hidden; transition: opacity .4s ease, visibility 0s .4s; }
+.sec[data-step="1"] .sc1, .sec[data-step="2"] .sc2, .sec[data-step="3"] .sc3, .sec[data-step="4"] .sc4, .sec[data-step="5"] .sc5, .sec[data-step="6"] .sc6,
+.sec[data-step="7"] .sc7, .sec[data-step="7"] .sc78, .sec[data-step="8"] .sc78, .sec[data-step="8"] .sc8 { opacity: 1; visibility: visible; transition: opacity .5s ease .12s, visibility 0s; }
 
-/* A: culture flask */
-.sec .liquid { fill: color-mix(in srgb, var(--accent) 12%, transparent); stroke: none; }
-.sec .cells rect { fill: color-mix(in srgb, var(--accent-2) 16%, transparent); stroke: var(--accent-2); stroke-width: 1.1; transition: opacity .7s; }
-.sec .fphages use { stroke: var(--accent-2); stroke-width: 1.5; transition: opacity .7s; }
-.sec[data-step="1"] .fphages use { animation: jig 1.4s ease-in-out infinite alternate; }
-.sec .fphages use:nth-child(2) { animation-delay: -.4s; } .sec .fphages use:nth-child(3) { animation-delay: -.8s; } .sec .fphages use:nth-child(4) { animation-delay: -.2s; } .sec .fphages use:nth-child(5) { animation-delay: -.6s; }
-@keyframes jig { from { transform: translate(-1.6px, -1px); } to { transform: translate(1.6px, 1.6px); } }
-.sec .prot { opacity: 0; transition: opacity .8s; }
-.sec.s2 .prot { opacity: 1; }
-.sec.s2 .cells { opacity: 0; }
-.sec.s2 .fphages use { opacity: .55; }
+.sec .pipe { stroke: var(--muted); stroke-width: 1.2; opacity: .8; }
+.sec .fit { fill: color-mix(in srgb, var(--muted) 30%, var(--surface-2)); stroke: var(--muted); stroke-width: 1; }
+.sec .col-body { fill: var(--surface-2); stroke: var(--accent); stroke-width: 1.8; }
+.sec .beadfill { stroke: none; }
+.sec .bead-c { fill: color-mix(in srgb, var(--accent) 14%, transparent); stroke: var(--accent); stroke-width: .8; opacity: .75; }
+.sec .bead-p { fill: var(--accent); stroke: none; opacity: .5; }
+.sec .frit { stroke: var(--muted); stroke-width: 2.2; opacity: .7; }
+.sec .lead { stroke: var(--muted); stroke-width: 1; stroke-dasharray: 3 3; opacity: .8; }
+.sec .axis { stroke: var(--muted); stroke-width: 1.1; }
+.sec .flowarrow { stroke: var(--accent); stroke-width: 1.6; }
 
-/* B: size-exclusion column and fractions */
-.sec .col { fill: var(--surface-2); stroke: var(--accent); }
-.sec #beads circle { fill: var(--accent); opacity: .3; stroke: none; }
-.sec .col-beads { stroke: none; }
-.sec .sp circle { opacity: 0; animation: sec-run var(--t, 3s) cubic-bezier(.45, .05, .55, .95) infinite; }
-.sec[data-step="3"] .sp circle { opacity: 1; }
-@keyframes sec-run { from { transform: translateY(0); } to { transform: translateY(112px); } }
-.sec .pipe { stroke: var(--muted); stroke-width: 1; opacity: .7; }
-.sec .tube-body { stroke: var(--accent); stroke-width: 1.2; }
-.sec .tube .fill { fill: color-mix(in srgb, var(--accent-2) 50%, transparent); stroke: none; transform-box: fill-box; transform-origin: 50% 100%; transform: scaleY(0); transition: transform 1.2s ease; transition-delay: calc(var(--i, 0) * .55s); }
-.sec.s3 .tube .fill, .sec.s4 .tube .fill, .sec.s5 .tube .fill { transform: scaleY(var(--f, .5)); }
-.sec .baseline { stroke: var(--line); stroke-width: 1; }
-.sec .trace { stroke: var(--accent-2); stroke-width: 1.7; stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset 3.6s linear; }
-.sec.s3 .trace, .sec.s4 .trace, .sec.s5 .trace { stroke-dashoffset: 0; }
+/* 1 · infect */
+.sec .cell { fill: color-mix(in srgb, var(--accent) 7%, transparent); stroke: var(--accent); stroke-width: 1.8; transition: fill .6s, stroke .6s; }
+.sec .dna { stroke: var(--muted); stroke-width: 1.4; opacity: .5; }
+.sec[data-step="1"] .cellA .cell { fill: color-mix(in srgb, var(--accent-2) 12%, transparent); stroke: var(--accent-2); }
+.sec .sc1 use { stroke: var(--accent-2); stroke-width: 1.6; }
+.sec .thread { stroke: var(--accent-2); stroke-width: 2.2; stroke-dasharray: 1; stroke-dashoffset: 1; }
+.sec[data-step="1"] .thread { animation: thread 1.6s ease-out .9s forwards; }
+@keyframes thread { to { stroke-dashoffset: 0; } }
+.sec[data-step="1"] .fl { animation: floaty 3.2s ease-in-out infinite alternate; animation-delay: var(--d, 0s); }
+@keyframes floaty { from { transform: translate(-6px, -4px); } to { transform: translate(8px, 10px); } }
+.sec[data-step="1"] .aph { animation: dock 1.1s cubic-bezier(.2, .8, .2, 1) both; }
+@keyframes dock { from { transform: translateY(-34px); opacity: 0; } to { transform: none; opacity: 1; } }
 
-/* C: reverse-phase LC column with eluting peptides */
+/* 2 · lyse */
+.sec .cell.lysed { stroke-dasharray: 7 9; fill: color-mix(in srgb, var(--accent) 4%, transparent); stroke-opacity: .7; }
+.sec .spill { opacity: 0; transition: opacity .8s; }
+.sec[data-step="2"] .spill { opacity: 1; animation: spill 5s ease-in-out infinite alternate; }
+@keyframes spill { from { transform: translateX(-4px); } to { transform: translateX(10px); } }
+
+/* 3 · load the column */
+.sec .sample-box { fill: var(--surface-2); stroke: var(--muted); }
+.sec[data-step="3"] .load { animation: load-in 1.5s cubic-bezier(.2, .8, .2, 1) both; }
+@keyframes load-in { from { transform: translateY(-70px); opacity: 0; } to { transform: none; opacity: 1; } }
+.sec .bufflow { stroke: var(--accent); stroke-width: 1.5; stroke-dasharray: 5 5; opacity: .85; }
+.sec[data-step="3"] .bufflow { animation: dash 1s linear infinite; }
+.sec .mbead { fill: var(--surface-2); stroke: var(--accent); stroke-width: 2; }
+.sec .mesh { stroke: var(--accent); opacity: .3; stroke-width: 1.2; }
+.sec .pore { stroke: color-mix(in srgb, var(--accent) 40%, var(--surface-2)); stroke-width: 7; }
+.sec .mv { offset-rotate: 0deg; opacity: 0; }
+.sec[data-step="3"] .mv { opacity: 1; animation: mv-run var(--t) linear infinite; }
+.sec .mv-s { offset-path: path('M430 96L466 119L486 134C508 146 496 166 520 172C544 178 532 198 516 206L508 222L500 268'); --t: 5.4s; }
+.sec .mv-l { offset-path: path('M500 44C420 84 416 214 496 268'); --t: 2.4s; }
+@keyframes mv-run { from { offset-distance: 0%; } to { offset-distance: 100%; } }
+
+/* 4 · elute by size */
+.sec .band { stroke: none; opacity: 0; }
+.sec .b-l { fill: var(--pa); } .sec .b-m { fill: var(--pd); } .sec .b-s { fill: var(--pf); }
+.sec[data-step="4"] .band { opacity: .75; animation: band-run var(--t) linear infinite; }
+.sec .b-l { --t: 2.6s; } .sec .b-m { --t: 3.8s; } .sec .b-s { --t: 5.6s; }
+@keyframes band-run { from { transform: translateY(0); } to { transform: translateY(106px); } }
+.sec .tube-body { stroke: var(--accent); stroke-width: 1.3; fill: color-mix(in srgb, var(--surface) 70%, transparent); }
+.sec .tube .fill { fill: color-mix(in srgb, var(--accent) 14%, transparent); stroke: none; transform-box: fill-box; transform-origin: 50% 100%; transform: scaleY(0); transition: transform .9s ease; transition-delay: calc(var(--i) * 1s); }
+.sec[data-step="4"] .tube .fill { transform: scaleY(.62); }
+.sec .tc { opacity: 0; transition: opacity .6s; transition-delay: calc(var(--i) * 1s + .5s); }
+.sec[data-step="4"] .tc { opacity: 1; }
+.sec .arm { stroke: var(--accent-2); stroke-width: 1.8; }
+.sec[data-step="4"] .arm { animation: arm 6s steps(6, jump-none) forwards; }
+@keyframes arm { from { transform: translateX(0); } to { transform: translateX(400px); } }
+.sec .trace { stroke: var(--accent-2); stroke-width: 2; stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset 0s; }
+.sec[data-step="4"] .trace { stroke-dashoffset: 0; transition: stroke-dashoffset 6s linear; }
+
+/* 5 · digest and LC */
+.sec .tube-body { stroke-linejoin: round; }
+.sec .ln { stroke-width: 1.3; opacity: .7; }
+.sec .la { stroke: var(--pa); } .sec .lb { stroke: var(--pb); } .sec .lc { stroke: var(--pc); }
+.sec .frag { transition: transform 0s; }
+.sec[data-step="5"] .frag { transition: transform 1s ease 1.2s; }
+.sec[data-step="5"] .f1 { transform: translate(-7px, -6px); } .sec[data-step="5"] .f3 { transform: translate(7px, 6px); } .sec[data-step="5"] .f2 { transform: translate(0, -2px); }
+.sec .cut { stroke: var(--ink); stroke-width: 1.4; opacity: 0; }
+.sec[data-step="5"] .cut { opacity: .7; transition: opacity .3s .9s; }
 .sec .lc-tube { stroke: color-mix(in srgb, var(--accent) 24%, transparent); stroke-width: 9; }
-.sec .lc-flow { stroke: var(--accent); stroke-width: 1.2; stroke-dasharray: 3 7; opacity: .7; animation: dash 1.1s linear infinite; }
-.sec .pep circle { offset-path: path('M392 70H478V92H392V114H478V136H392V158H478V196H520'); offset-rotate: 0deg; opacity: 0; animation: pep-run var(--t, 5s) linear infinite; }
-.sec[data-step="4"] .pep circle, .sec[data-step="5"] .pep circle { opacity: 1; }
+.sec .lc-flow { stroke: var(--accent); stroke-width: 1.2; stroke-dasharray: 3 7; opacity: .7; }
+.sec[data-step="5"] .lc-flow { animation: dash 1.1s linear infinite; }
+.sec .pep circle { offset-path: path('M262 100H430V122H284V144H430V166H284V188H430V210H478'); offset-rotate: 0deg; opacity: 0; }
+.sec[data-step="5"] .pep circle { opacity: 1; animation: pep-run var(--t, 5s) linear infinite; }
 @keyframes pep-run { from { offset-distance: 0%; } to { offset-distance: 100%; } }
+.sec .pk { stroke: var(--accent); stroke-width: 1.8; stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset 0s; }
+.sec[data-step="5"] .pk { stroke-dashoffset: 0; transition: stroke-dashoffset .9s ease; transition-delay: calc(var(--n) * .8s + 1.4s); }
 
-/* D: electrospray, mass spectrometer and spectrum */
+/* 6 · MS/MS */
 .sec .needle { stroke: var(--accent); }
-.sec .ions circle { offset-rotate: 0deg; opacity: 0; animation: ion-run 1.1s linear infinite; }
-.sec .ions circle:nth-child(1) { offset-path: path('M524 196L550 196'); }
-.sec .ions circle:nth-child(2) { offset-path: path('M524 196L550 190'); animation-delay: -.3s; }
-.sec .ions circle:nth-child(3) { offset-path: path('M524 196L550 202'); animation-delay: -.6s; }
-.sec .ions circle:nth-child(4) { offset-path: path('M524 196L550 196'); animation-delay: -.85s; }
-.sec[data-step="5"] .ions circle { opacity: 1; }
+.sec .ions circle { offset-rotate: 0deg; opacity: 0; }
+.sec[data-step="6"] .ions circle { opacity: 1; animation: ion-run 1.1s linear infinite; }
+.sec .ions circle:nth-child(1) { offset-path: path('M60 190L100 190'); }
+.sec .ions circle:nth-child(2) { offset-path: path('M60 190L100 184'); animation-delay: -.3s; }
+.sec .ions circle:nth-child(3) { offset-path: path('M60 190L100 196'); animation-delay: -.6s; }
+.sec .ions circle:nth-child(4) { offset-path: path('M60 190L100 190'); animation-delay: -.85s; }
 @keyframes ion-run { from { offset-distance: 0%; } to { offset-distance: 100%; } }
 .sec .ms-box { fill: var(--surface-2); stroke: var(--accent); }
 .sec .ms-in { stroke: var(--line); fill: color-mix(in srgb, var(--accent) 8%, transparent); stroke-width: 1; }
-.sec .axis { stroke: var(--muted); stroke-width: 1; }
-.sec .win { fill: var(--accent-2); stroke: none; opacity: 0; animation: win-flash 3.2s ease-in-out infinite paused; }
-.sec[data-step="5"] .win { animation-play-state: running; }
+.sec .win { fill: var(--accent-2); stroke: none; opacity: 0; }
+.sec[data-step="6"] .win { animation: win-flash 3.2s ease-in-out infinite; }
 @keyframes win-flash { 0%, 100% { opacity: 0; } 12%, 28% { opacity: .22; } 40% { opacity: 0; } }
-.sec .bars line { stroke-width: 2.4; transform-box: fill-box; transform-origin: 50% 100%; transform: scaleY(0); transition: transform .5s cubic-bezier(.2, .8, .2, 1); transition-delay: calc(var(--i, 0) * 70ms); }
-.sec .bars .pre { stroke: var(--accent-2); }
-.sec .bars .frag { stroke: var(--accent); }
-.sec[data-step="5"] .bars line { transform: scaleY(1); }
+.sec .bars line { stroke-width: 2.6; transform-box: fill-box; transform-origin: 50% 100%; transform: scaleY(0); transition: transform 0s; }
+.sec .ms1 line { stroke: var(--accent-2); }
+.sec .ms2 line { stroke: var(--accent); }
+.sec[data-step="6"] .ms1 line { transform: scaleY(1); transition: transform .5s cubic-bezier(.2, .8, .2, 1); transition-delay: calc(var(--i, 0) * 60ms); }
+.sec[data-step="6"] .ms2 line { transform: scaleY(1); animation: ms2 .8s ease-out infinite; }
+@keyframes ms2 { 0% { transform: scaleY(.12); } 45%, 100% { transform: scaleY(1); } }
+
+/* 7 and 8 · profiles and interactome */
+.sec .hm { stroke: none; fill-opacity: 0; transition: fill-opacity 0s; }
+.sec .ra { fill: var(--pa); } .sec .rb { fill: var(--pb); } .sec .rc { fill: var(--pc); } .sec .rd { fill: var(--pd); } .sec .re { fill: var(--pe); } .sec .rf { fill: var(--pf); }
+.sec[data-step="7"] .hm, .sec[data-step="8"] .hm { fill-opacity: var(--o); transition: fill-opacity .7s ease; transition-delay: calc(var(--j) * .12s + .2s); }
+.sec .rl { font-weight: 700; }
+.sec .cv { stroke-width: 2.2; stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset 0s; }
+.sec .cva { stroke: var(--pa); } .sec .cvb { stroke: var(--pb); } .sec .cvc { stroke: var(--pc); } .sec .cvd { stroke: var(--pd); } .sec .cve { stroke: var(--pe); } .sec .cvf { stroke: var(--pf); }
+.sec[data-step="7"] .cv { stroke-dashoffset: 0; transition: stroke-dashoffset 2s ease; transition-delay: calc(var(--n) * .2s + .6s); }
+.sec .pklab { opacity: 0; transition: opacity 0s; }
+.sec[data-step="7"] .pklab { opacity: 1; transition: opacity .6s ease 2.4s; }
+.sec .br { opacity: 0; stroke: var(--muted); }
+.sec text.br { stroke: none; }
+.sec[data-step="8"] .br { opacity: 1; transition: opacity .6s ease .6s; }
+.sec .cxo { stroke: var(--accent); stroke-width: 1.4; stroke-dasharray: 5 6; opacity: 0; }
+.sec[data-step="8"] .cxo { opacity: .8; transition: opacity .8s ease 2.2s; }
+.sec .edge { stroke: var(--accent-2); stroke-width: 2.4; stroke-dasharray: 1; stroke-dashoffset: 1; }
+.sec[data-step="8"] .edge { stroke-dashoffset: 0; transition: stroke-dashoffset 1s ease 1.3s; }
+.sec .node { opacity: 0; transform-box: fill-box; transform-origin: center; transform: scale(.4); transition: none; }
+.sec[data-step="8"] .node { opacity: 1; transform: none; transition: opacity .5s ease, transform .5s cubic-bezier(.2, .8, .2, 1); transition-delay: calc(var(--n) * .12s + .3s); }
+.sec .nl { fill: var(--ink); font-size: 13px; }
+
+.app-link { display: inline-block; margin-top: .9rem; padding: .55rem 1rem; border-radius: 999px; font-weight: 600; font-size: .92rem; color: var(--accent-ink); background: var(--accent); transition: transform .2s, box-shadow .2s; }
+.app-link:hover { transform: translateY(-2px); box-shadow: 0 10px 24px -10px rgba(var(--glow), .9); }
+.app-link[hidden] { display: none; }
+.sec-card .step-caption { min-height: 8.2rem; }
+.sec-card .stepper { gap: .4rem; }
+.sec-card .step-btn { padding-right: .8rem; font-size: .84rem; }
 
 @media (max-width: 700px) { .sec { min-width: 620px; } }
 

@@ -290,124 +290,370 @@
       <div class="container">
         <div class="section-head reveal">
           <p class="eyebrow">Proteomics</p>
-          <h2>How SEC-MS finds protein complexes</h2>
-          <p class="section-sub">Size-exclusion chromatography and mass spectrometry show which proteins travel together after infection.</p>
+          <h2>How SEC-MS maps protein interactions</h2>
+          <p class="section-sub">Size-exclusion chromatography keeps protein complexes intact and sorts them by size. Mass spectrometry then reads out which proteins are in each fraction, and the elution profiles reveal who interacts with whom.</p>
         </div>
         <div class="infection-card sec-card reveal">
           <div class="sec-scroll">
-            <svg class="sec s1" viewBox="0 0 760 320" role="img" aria-label="Animated diagram of an SEC-MS workflow: an infected culture is lysed, separated by size on an HPLC column into fractions, digested peptides are separated by LC and measured by tandem mass spectrometry">
-              <defs><pattern id="beads" width="9" height="9" patternUnits="userSpaceOnUse"><circle cx="4.5" cy="4.5" r="1.6"/></pattern></defs>
+            <svg class="sec s1" viewBox="0 0 760 360" role="img" aria-label="Animated eight-step diagram of an SEC-MS interactome experiment: phage infection of bacteria, lysis, loading a size-exclusion column, elution of complexes by size into fractions, digestion and LC, tandem mass spectrometry, elution profiles, and the inferred interactome network">
+              <defs>
+                <pattern id="beadp" width="18" height="18" patternUnits="userSpaceOnUse"><circle class="bead-c" cx="9" cy="9" r="6.5"/><circle class="bead-p" cx="7" cy="7.5" r="1.1"/><circle class="bead-p" cx="11.2" cy="10" r="1.1"/><circle class="bead-p" cx="8.4" cy="11.6" r="1"/></pattern>
+                <linearGradient id="grad" x1="0" x2="1"><stop offset="0" stop-color="#0f9d8f" stop-opacity=".1"/><stop offset="1" stop-color="#0f9d8f" stop-opacity=".85"/></linearGradient>
+                <g id="cxl"><circle class="pa" cx="-7" cy="-5" r="9"/><circle class="pb" cx="9" cy="-3" r="8"/><circle class="pc" cx="1" cy="10" r="8"/></g>
+                <g id="cxm"><circle class="pd" cx="-5.5" cy="0" r="6"/><circle class="pe" cx="5.5" cy="1.5" r="6"/></g>
+                <g id="cxs"><circle class="pf" cx="0" cy="0" r="4"/></g>
+              </defs>
 
-              <path class="flowline fl1" d="M70 40V22H257V40"/>
-              <path class="flowline fl2" d="M330 214H372M366 209l6 5-6 5"/>
-
-              <g class="st st-a">
-                <path class="flask" d="M56 40H84V76L118 160Q122 172 108 172H32Q18 172 22 160L56 76Z"/>
-                <path class="liquid" d="M29 132H111L118 160Q122 172 108 172H32Q18 172 22 160Z"/>
-                <g class="cells">
-                  <rect x="34" y="146" width="24" height="10" rx="5" transform="rotate(-18 46 151)"/>
-                  <rect x="66" y="140" width="24" height="10" rx="5" transform="rotate(22 78 145)"/>
-                  <rect x="46" y="158" width="24" height="10" rx="5"/>
-                  <rect x="82" y="156" width="22" height="9" rx="4.5" transform="rotate(-10 93 160)"/>
+              <!-- 1 · Infect -->
+              <g class="sc sc1">
+                <g class="cellA">
+                  <rect class="cell" x="130" y="210" width="250" height="64" rx="32"/>
+                  <path class="dna" d="M160 242c12-14 24 14 36 0s24 14 36 0 24 14 36 0 24 14 36 0 24 14 36 0"/>
+                  <path class="thread" pathLength="1" d="M210 212V224c8 5-8 11 0 17"/>
+                  <path class="thread" pathLength="1" d="M290 212V224c8 5-8 11 0 17"/>
                 </g>
-                <g class="fphages">
-                  <use href="#phage" x="31" y="134" width="9" height="14"/>
-                  <use href="#phage" x="52" y="138" width="9" height="14"/>
-                  <use href="#phage" x="74" y="134" width="9" height="14"/>
-                  <use href="#phage" x="96" y="138" width="9" height="14"/>
-                  <use href="#phage" x="62" y="152" width="9" height="14"/>
-                </g>
-                <g class="prot">
-                  <circle class="p1" cx="40" cy="152" r="3"/><circle class="p1" cx="84" cy="164" r="4"/><circle class="p1" cx="98" cy="148" r="2.5"/>
-                  <circle class="p2" cx="66" cy="150" r="7"/><circle class="p2" cx="54" cy="164" r="4.5"/>
-                  <circle class="p3" cx="48" cy="142" r="2"/><circle class="p3" cx="104" cy="161" r="5"/><circle class="p3" cx="80" cy="142" r="3"/>
-                </g>
-                <text class="lbl" x="70" y="306">Culture</text>
+                <use class="aph" href="#phage" x="192" y="156" width="36" height="56"/>
+                <use class="aph" href="#phage" x="272" y="156" width="36" height="56"/>
+                <g transform="rotate(-10 580 261)"><rect class="cell" x="470" y="232" width="220" height="58" rx="29"/><path class="dna" d="M500 262c12-14 24 14 36 0s24 14 36 0 24 14 36 0 24 14 36 0 24 14 36 0"/></g>
+                <g transform="rotate(18 458 108)"><use class="fl" href="#phage" x="440" y="80" width="36" height="56" style="--d:0s"/></g>
+                <g transform="rotate(-24 538 148)"><use class="fl" href="#phage" x="520" y="120" width="36" height="56" style="--d:-1.1s"/></g>
+                <g transform="rotate(30 618 102)"><use class="fl" href="#phage" x="600" y="74" width="36" height="56" style="--d:-2s"/></g>
+                <g transform="rotate(-12 678 158)"><use class="fl" href="#phage" x="660" y="130" width="36" height="56" style="--d:-.6s"/></g>
+                <text x="404" y="74" text-anchor="end" class="t-b">Phage</text>
+                <path class="lead" d="M410 70L438 90"/>
+                <text x="332" y="160" class="t-sm t-muted">Phage attaches and</text>
+                <text x="332" y="176" class="t-sm t-muted">injects its DNA</text>
+                <text x="255" y="312" text-anchor="middle" class="t-b">Infected bacterium</text>
+                <text x="580" y="314" text-anchor="middle" class="t-b">Uninfected bacterium</text>
               </g>
 
-              <g class="st st-b">
-                <rect class="col" x="232" y="40" width="50" height="130" rx="8"/>
-                <rect class="col-beads" x="232" y="40" width="50" height="130" rx="8" fill="url(#beads)"/>
-                <g class="sp">
-                  <circle class="p2" cx="245" cy="48" r="5" style="--t:2.6s"/>
-                  <circle class="p1" cx="257" cy="48" r="3.4" style="--t:3.8s"/>
-                  <circle class="p3" cx="269" cy="48" r="2.2" style="--t:5.6s"/>
-                  <circle class="p2" cx="251" cy="48" r="4" style="--t:2.9s;animation-delay:-1.4s"/>
-                  <circle class="p1" cx="264" cy="48" r="2.8" style="--t:4.4s;animation-delay:-2.2s"/>
-                  <circle class="p3" cx="257" cy="48" r="1.8" style="--t:6s;animation-delay:-3s"/>
+              <!-- 2 · Lyse -->
+              <g class="sc sc2">
+                <rect class="cell lysed" x="110" y="150" width="250" height="124" rx="62"/>
+                <text x="235" y="128" text-anchor="middle" class="t-sm t-muted">Cells lysed under native conditions</text>
+                <g class="spill">
+                  <use href="#cxl" x="190" y="200"/><use href="#cxl" x="270" y="225"/><use href="#cxl" x="150" y="240"/>
+                  <use href="#cxm" x="225" y="180"/><use href="#cxm" x="305" y="190"/><use href="#cxm" x="215" y="250"/><use href="#cxm" x="345" y="240"/><use href="#cxm" x="400" y="160"/>
+                  <use href="#cxs" x="170" y="175"/><use href="#cxs" x="250" y="205"/><use href="#cxs" x="300" y="255"/><use href="#cxs" x="330" y="215"/><use href="#cxs" x="125" y="210"/><use href="#cxs" x="385" y="200"/><use href="#cxs" x="410" y="245"/><use href="#cxs" x="440" y="215"/>
                 </g>
-                <path class="pipe" d="M257 170V182M197 182H317M197 182V189M221 182V189M245 182V189M269 182V189M293 182V189M317 182V189"/>
-                <g class="tube" style="--f:.25;--i:0"><rect class="tube-body" x="190" y="190" width="14" height="48" rx="3"/><rect class="fill" x="191.5" y="191.5" width="11" height="45" rx="2"/></g>
-                <g class="tube" style="--f:.6;--i:1"><rect class="tube-body" x="214" y="190" width="14" height="48" rx="3"/><rect class="fill" x="215.5" y="191.5" width="11" height="45" rx="2"/></g>
-                <g class="tube" style="--f:.9;--i:2"><rect class="tube-body" x="238" y="190" width="14" height="48" rx="3"/><rect class="fill" x="239.5" y="191.5" width="11" height="45" rx="2"/></g>
-                <g class="tube" style="--f:.55;--i:3"><rect class="tube-body" x="262" y="190" width="14" height="48" rx="3"/><rect class="fill" x="263.5" y="191.5" width="11" height="45" rx="2"/></g>
-                <g class="tube" style="--f:.35;--i:4"><rect class="tube-body" x="286" y="190" width="14" height="48" rx="3"/><rect class="fill" x="287.5" y="191.5" width="11" height="45" rx="2"/></g>
-                <g class="tube" style="--f:.2;--i:5"><rect class="tube-body" x="310" y="190" width="14" height="48" rx="3"/><rect class="fill" x="311.5" y="191.5" width="11" height="45" rx="2"/></g>
-                <path class="baseline" d="M190 284H324"/>
-                <path class="trace" pathLength="1" d="M190 284H198C202 284 204 262 208 262S214 284 220 284H234C238 284 242 266 246 266S254 284 260 284H272C277 284 280 272 284 272S291 284 296 284H306C310 284 312 278 315 278S320 284 324 284"/>
-                <text class="lbl" x="257" y="306">SEC fractions</text>
+                <text x="520" y="84" class="t-h">Lysate contents</text>
+                <use href="#cxl" x="540" y="128"/>
+                <text x="572" y="124" class="t-sm t-b">Large complex</text><text x="572" y="140" class="t-sm t-muted">several different proteins</text>
+                <use href="#cxm" x="540" y="186"/>
+                <text x="572" y="182" class="t-sm t-b">Smaller complex</text><text x="572" y="198" class="t-sm t-muted">two proteins</text>
+                <use href="#cxs" x="540" y="240"/>
+                <text x="572" y="236" class="t-sm t-b">Single protein</text><text x="572" y="252" class="t-sm t-muted">not in a complex</text>
+                <text x="520" y="302" class="t-sm t-muted">Each colour is a different protein.</text>
+                <text x="520" y="318" class="t-sm t-muted">Native lysis keeps complexes intact.</text>
               </g>
 
-              <g class="st st-c">
-                <path class="lc-tube" d="M392 70H478V92H392V114H478V136H392V158H478V196H520"/>
-                <path class="lc-flow" d="M392 70H478V92H392V114H478V136H392V158H478V196H520"/>
+              <!-- 3 · Load the column -->
+              <g class="sc sc3">
+                <rect class="sample-box" x="150" y="14" width="80" height="26" rx="6"/>
+                <text x="190" y="31" text-anchor="middle" class="t-sm">Lysate</text>
+                <path class="pipe" d="M190 40V62"/>
+                <rect class="fit" x="160" y="62" width="60" height="10" rx="3"/>
+                <rect class="col-body" x="145" y="72" width="90" height="196" rx="12"/>
+                <rect class="beadfill" x="148" y="90" width="84" height="160" fill="url(#beadp)"/>
+                <path class="frit" d="M148 90H232M148 250H232"/>
+                <rect class="fit" x="160" y="268" width="60" height="10" rx="3"/>
+                <path class="pipe" d="M190 278V300"/>
+                <text x="190" y="322" text-anchor="middle" class="t-sm t-muted">To detector and fraction collector</text>
+                <g class="load">
+                  <use href="#cxl" x="172" y="110"/><use href="#cxl" x="208" y="118"/>
+                  <use href="#cxm" x="190" y="140"/><use href="#cxm" x="165" y="150"/><use href="#cxm" x="215" y="154"/>
+                  <use href="#cxs" x="180" y="166"/><use href="#cxs" x="200" y="170"/><use href="#cxs" x="226" y="140"/><use href="#cxs" x="158" y="132"/>
+                </g>
+                <text x="134" y="140" text-anchor="end" class="t-b">SEC column</text>
+                <text x="134" y="156" text-anchor="end" class="t-sm t-muted">(HPLC)</text>
+                <text x="134" y="204" text-anchor="end" class="t-sm t-muted">packed with</text>
+                <text x="134" y="220" text-anchor="end" class="t-sm t-muted">porous beads</text>
+                <path class="bufflow" d="M262 100V236M256 228l6 8 6-8"/>
+                <text x="262" y="256" text-anchor="middle" class="t-sm t-muted">buffer</text>
+                <text x="262" y="270" text-anchor="middle" class="t-sm t-muted">flow</text>
+                <path class="lead" d="M238 150L458 150"/>
+                <text x="520" y="30" text-anchor="middle" class="t-sm t-muted">Inside the column (magnified)</text>
+                <circle class="mbead" cx="520" cy="150" r="62"/>
+                <path class="mesh" d="M470 172C490 150 510 190 530 172S560 150 575 176M476 132C500 120 515 150 540 136S565 126 572 152"/>
+                <path class="pore" d="M466 119L486 134M520 88V104M574 119L558 130M574 181L558 172M509 211L512 196M466 181L484 171"/>
+                <g class="mv mv-s"><use href="#cxs"/></g>
+                <g class="mv mv-l"><use href="#cxl" transform="scale(.85)"/></g>
+                <text x="606" y="82" class="t-sm t-b">Large complexes</text>
+                <text x="606" y="98" class="t-sm t-muted">cannot enter the pores,</text>
+                <text x="606" y="114" class="t-sm t-muted">so they take a short path.</text>
+                <text x="606" y="202" class="t-sm t-b">Single proteins</text>
+                <text x="606" y="218" class="t-sm t-muted">enter the pores and take</text>
+                <text x="606" y="234" class="t-sm t-muted">a long path.</text>
+              </g>
+
+              <!-- 4 · Elute by size -->
+              <g class="sc sc4">
+                <rect class="fit" x="52" y="34" width="36" height="9" rx="3"/>
+                <rect class="col-body" x="40" y="43" width="60" height="160" rx="10"/>
+                <rect class="beadfill" x="43" y="56" width="54" height="134" fill="url(#beadp)"/>
+                <g class="bands">
+                  <rect class="band b-l" x="46" y="58" width="48" height="13" rx="6"/>
+                  <rect class="band b-m" x="46" y="58" width="48" height="13" rx="6"/>
+                  <rect class="band b-s" x="46" y="58" width="48" height="13" rx="6"/>
+                </g>
+                <rect class="fit" x="52" y="203" width="36" height="9" rx="3"/>
+                <path class="pipe" d="M70 212V224H690"/>
+                <text x="112" y="100" class="t-b">Large complexes</text>
+                <text x="112" y="116" class="t-sm t-muted">move fastest,</text>
+                <text x="112" y="132" class="t-sm t-muted">elute first.</text>
+                <path class="axis" d="M230 40V190H710"/>
+                <path class="trace" pathLength="1" d="M230 190H262C280 190 286 106 310 106C334 106 340 190 358 190H422C438 190 446 130 470 130C494 130 502 190 518 190H582C598 190 606 154 630 154C654 154 662 190 678 190H710"/>
+                <text transform="translate(222 118) rotate(-90)" text-anchor="middle" class="t-sm t-muted">UV signal</text>
+                <text x="270" y="203" class="t-sm t-muted">Large</text>
+                <text x="670" y="203" text-anchor="end" class="t-sm t-muted">Small</text>
+                <path class="axis" d="M310 212H640M634 208l6 4-6 4"/>
+                <text x="470" y="203" text-anchor="middle" class="t-sm t-muted">elution order</text>
+                <g class="arm"><path d="M270 224V244M264 238l6 8 6-8"/></g>
+                <text x="238" y="282" text-anchor="end" class="t-sm t-muted">Fraction</text>
+                <text x="238" y="298" text-anchor="end" class="t-sm t-muted">collector</text>
+<g class="tube" style="--i:0"><rect class="tube-body" x="256" y="250" width="28" height="62" rx="4"/><rect class="fill" x="258" y="252" width="24" height="58" rx="2"/><g class="tc"><use href="#cxl" transform="translate(270 272) scale(0.62)"/><use href="#cxl" transform="translate(270 296) scale(0.62)"/></g></g><text class="t-sm t-muted" x="270" y="327" text-anchor="middle">1</text>
+<g class="tube" style="--i:1"><rect class="tube-body" x="336" y="250" width="28" height="62" rx="4"/><rect class="fill" x="338" y="252" width="24" height="58" rx="2"/><g class="tc"><use href="#cxl" transform="translate(350 272) scale(0.62)"/><use href="#cxm" transform="translate(350 296) scale(0.8)"/></g></g><text class="t-sm t-muted" x="350" y="327" text-anchor="middle">2</text>
+<g class="tube" style="--i:2"><rect class="tube-body" x="416" y="250" width="28" height="62" rx="4"/><rect class="fill" x="418" y="252" width="24" height="58" rx="2"/><g class="tc"><use href="#cxm" transform="translate(430 272) scale(0.8)"/><use href="#cxm" transform="translate(430 296) scale(0.8)"/></g></g><text class="t-sm t-muted" x="430" y="327" text-anchor="middle">3</text>
+<g class="tube" style="--i:3"><rect class="tube-body" x="496" y="250" width="28" height="62" rx="4"/><rect class="fill" x="498" y="252" width="24" height="58" rx="2"/><g class="tc"><use href="#cxm" transform="translate(510 272) scale(0.8)"/><use href="#cxs" transform="translate(505 298) scale(1)"/><use href="#cxs" transform="translate(516 296) scale(1)"/></g></g><text class="t-sm t-muted" x="510" y="327" text-anchor="middle">4</text>
+<g class="tube" style="--i:4"><rect class="tube-body" x="576" y="250" width="28" height="62" rx="4"/><rect class="fill" x="578" y="252" width="24" height="58" rx="2"/><g class="tc"><use href="#cxs" transform="translate(584 268) scale(1)"/><use href="#cxs" transform="translate(596 278) scale(1)"/><use href="#cxs" transform="translate(585 290) scale(1)"/><use href="#cxs" transform="translate(596 301) scale(1)"/></g></g><text class="t-sm t-muted" x="590" y="327" text-anchor="middle">5</text>
+<g class="tube" style="--i:5"><rect class="tube-body" x="656" y="250" width="28" height="62" rx="4"/><rect class="fill" x="658" y="252" width="24" height="58" rx="2"/><g class="tc"><use href="#cxs" transform="translate(665 274) scale(1)"/><use href="#cxs" transform="translate(676 288) scale(1)"/><use href="#cxs" transform="translate(666 301) scale(1)"/></g></g><text class="t-sm t-muted" x="670" y="327" text-anchor="middle">6</text>
+                <path class="axis" d="M262 336H358M422 336H518M582 336H678"/>
+                <text x="310" y="352" text-anchor="middle" class="t-sm t-b">multi-protein complexes</text>
+                <text x="470" y="352" text-anchor="middle" class="t-sm t-b">smaller complexes</text>
+                <text x="630" y="352" text-anchor="middle" class="t-sm t-b">single proteins</text>
+              </g>
+
+              <!-- 5 · Digest and LC -->
+              <g class="sc sc5">
+                <text x="130" y="46" text-anchor="middle" class="t-h">Digest each fraction</text>
+                <rect class="tube-body" x="36" y="66" width="28" height="70" rx="4"/>
+                <use href="#cxl" transform="translate(50 92) scale(.62)"/>
+                <use href="#cxm" transform="translate(50 120) scale(.75)"/>
+                <path class="flowarrow" d="M72 102H96M91 97l5 5-5 5"/>
+<g class="frag f1"><path class="ln la" d="M108 78H130"/><circle class="pa" cx="108" cy="78" r="4"/><circle class="pa" cx="119" cy="78" r="4"/><circle class="pa" cx="130" cy="78" r="4"/></g>
+<g class="frag f2"><path class="ln la" d="M141 78H163"/><circle class="pa" cx="141" cy="78" r="4"/><circle class="pa" cx="152" cy="78" r="4"/><circle class="pa" cx="163" cy="78" r="4"/></g>
+<g class="frag f3"><path class="ln la" d="M174 78H185"/><circle class="pa" cx="174" cy="78" r="4"/><circle class="pa" cx="185" cy="78" r="4"/></g>
+<path class="cut" d="M135.5 70V86"/>
+<path class="cut" d="M168.5 70V86"/>
+<g class="frag f1"><path class="ln lb" d="M108 102H130"/><circle class="pb" cx="108" cy="102" r="4"/><circle class="pb" cx="119" cy="102" r="4"/><circle class="pb" cx="130" cy="102" r="4"/></g>
+<g class="frag f2"><path class="ln lb" d="M141 102H163"/><circle class="pb" cx="141" cy="102" r="4"/><circle class="pb" cx="152" cy="102" r="4"/><circle class="pb" cx="163" cy="102" r="4"/></g>
+<g class="frag f3"><path class="ln lb" d="M174 102H185"/><circle class="pb" cx="174" cy="102" r="4"/><circle class="pb" cx="185" cy="102" r="4"/></g>
+<path class="cut" d="M135.5 94V110"/>
+<path class="cut" d="M168.5 94V110"/>
+<g class="frag f1"><path class="ln lc" d="M108 126H130"/><circle class="pc" cx="108" cy="126" r="4"/><circle class="pc" cx="119" cy="126" r="4"/><circle class="pc" cx="130" cy="126" r="4"/></g>
+<g class="frag f2"><path class="ln lc" d="M141 126H163"/><circle class="pc" cx="141" cy="126" r="4"/><circle class="pc" cx="152" cy="126" r="4"/><circle class="pc" cx="163" cy="126" r="4"/></g>
+<g class="frag f3"><path class="ln lc" d="M174 126H185"/><circle class="pc" cx="174" cy="126" r="4"/><circle class="pc" cx="185" cy="126" r="4"/></g>
+<path class="cut" d="M135.5 118V134"/>
+<path class="cut" d="M168.5 118V134"/>
+                <text x="146" y="164" text-anchor="middle" class="t-sm t-b">Trypsin cuts every protein</text>
+                <text x="146" y="180" text-anchor="middle" class="t-sm t-muted">into short peptides</text>
+                <text x="372" y="46" text-anchor="middle" class="t-h">Reverse-phase LC</text>
+                <path class="flowarrow" d="M196 100H250M245 95l5 5-5 5"/>
+                <path class="lc-tube" d="M262 100H430V122H284V144H430V166H284V188H430V210H478"/>
+                <path class="lc-flow" d="M262 100H430V122H284V144H430V166H284V188H430V210H478"/>
                 <g class="pep">
-                  <circle class="p1" r="2.6" style="--t:5s;animation-delay:0s"/>
-                  <circle class="p2" r="2.6" style="--t:5.6s;animation-delay:-1.1s"/>
-                  <circle class="p3" r="2.6" style="--t:6.2s;animation-delay:-2.4s"/>
-                  <circle class="p1" r="2.6" style="--t:5.3s;animation-delay:-3.2s"/>
-                  <circle class="p2" r="2.6" style="--t:6.6s;animation-delay:-4.1s"/>
+                  <circle class="pa" r="2.8" style="--t:5s;animation-delay:0s"/><circle class="pb" r="2.8" style="--t:5.6s;animation-delay:-1.1s"/>
+                  <circle class="pc" r="2.8" style="--t:6.2s;animation-delay:-2.4s"/><circle class="pa" r="2.8" style="--t:5.3s;animation-delay:-3.2s"/>
+                  <circle class="pd" r="2.8" style="--t:6.6s;animation-delay:-4.1s"/><circle class="pe" r="2.8" style="--t:5.8s;animation-delay:-.6s"/>
                 </g>
-                <text class="lbl" x="440" y="306">LC peptides</text>
+                <rect class="gradbar" x="284" y="236" width="146" height="10" rx="5" fill="url(#grad)"/>
+                <text x="357" y="266" text-anchor="middle" class="t-sm t-muted">rising organic solvent</text>
+                <text x="357" y="282" text-anchor="middle" class="t-sm t-muted">releases peptides one by one</text>
+                <text x="620" y="46" text-anchor="middle" class="t-h">Peptides elute over time</text>
+                <path class="flowarrow" d="M482 210H504M499 205l5 5-5 5"/>
+                <path class="axis" d="M510 80V212H732"/>
+                <path class="pk" pathLength="1" style="--n:0" d="M524 212C531 212 533 176 540 176S549 212 556 212"/>
+                <path class="pk" pathLength="1" style="--n:1" d="M560 212C570 212 573 132 582 132S594 212 604 212"/>
+                <path class="pk" pathLength="1" style="--n:2" d="M608 212C616 212 619 164 627 164S636 212 644 212"/>
+                <path class="pk" pathLength="1" style="--n:3" d="M648 212C660 212 664 108 675 108S690 212 702 212"/>
+                <path class="pk" pathLength="1" style="--n:4" d="M704 212C711 212 713 184 719 184S726 212 732 212"/>
+                <text x="732" y="228" text-anchor="end" class="t-sm t-muted">time</text>
+                <text transform="translate(498 146) rotate(-90)" text-anchor="middle" class="t-sm t-muted">signal</text>
+                <text x="620" y="262" text-anchor="middle" class="t-sm t-b">Separated by hydrophobicity,</text>
+                <text x="620" y="278" text-anchor="middle" class="t-sm t-muted">not by size.</text>
+                <text x="620" y="302" text-anchor="middle" class="t-sm t-muted">Size comes from the fraction.</text>
               </g>
 
-              <g class="st st-d">
-                <path class="needle" d="M520 196L536 187M520 196L536 205"/>
-                <g class="ions"><circle class="p2" r="1.7"/><circle class="p2" r="1.7"/><circle class="p2" r="1.7"/><circle class="p2" r="1.7"/></g>
-                <rect class="ms-box" x="548" y="150" width="72" height="92" rx="10"/>
-                <rect class="ms-in" x="558" y="166" width="52" height="14" rx="3"/>
-                <rect class="ms-in" x="558" y="190" width="52" height="14" rx="3"/>
-                <rect class="ms-in" x="558" y="214" width="52" height="14" rx="3"/>
+              <!-- 6 · MS/MS -->
+              <g class="sc sc6">
+                <text x="156" y="52" text-anchor="middle" class="t-h">Mass spectrometer</text>
+                <path class="needle" d="M18 190H56M56 190L74 180M56 190L74 200"/>
+                <g class="ions"><circle class="pa" r="1.9"/><circle class="pb" r="1.9"/><circle class="pc" r="1.9"/><circle class="pd" r="1.9"/></g>
+                <rect class="ms-box" x="96" y="96" width="120" height="188" rx="12"/>
+                <rect class="ms-in" x="108" y="108" width="96" height="48" rx="6"/>
+                <text x="156" y="128" text-anchor="middle" class="t-sm">Select an</text><text x="156" y="144" text-anchor="middle" class="t-sm">m/z window</text>
+                <rect class="ms-in" x="108" y="166" width="96" height="48" rx="6"/>
+                <text x="156" y="195" text-anchor="middle" class="t-sm">Fragment</text>
+                <rect class="ms-in" x="108" y="224" width="96" height="48" rx="6"/>
+                <text x="156" y="253" text-anchor="middle" class="t-sm">Detect</text>
+                <path class="flowarrow" d="M156 158V164M156 216V222"/>
+                <text x="356" y="52" text-anchor="middle" class="t-h">MS1 · peptide ions</text>
                 <g class="wins">
-                  <rect class="win" x="642" y="92" width="26" height="148" style="animation-delay:0s"/>
-                  <rect class="win" x="668" y="92" width="26" height="148" style="animation-delay:.8s"/>
-                  <rect class="win" x="694" y="92" width="26" height="148" style="animation-delay:1.6s"/>
-                  <rect class="win" x="720" y="92" width="26" height="148" style="animation-delay:2.4s"/>
+                  <rect class="win" x="252" y="76" width="52" height="160" style="animation-delay:0s"/>
+                  <rect class="win" x="304" y="76" width="52" height="160" style="animation-delay:.8s"/>
+                  <rect class="win" x="356" y="76" width="52" height="160" style="animation-delay:1.6s"/>
+                  <rect class="win" x="408" y="76" width="52" height="160" style="animation-delay:2.4s"/>
                 </g>
-                <path class="axis" d="M640 92V240H750"/>
-                <g class="bars">
-                  <line class="frag" x1="647" x2="647" y1="240" y2="206" style="--i:0"/>
-                  <line class="pre" x1="654" x2="654" y1="240" y2="130" style="--i:1"/>
-                  <line class="frag" x1="658" x2="658" y1="240" y2="188" style="--i:2"/>
-                  <line class="frag" x1="666" x2="666" y1="240" y2="214" style="--i:3"/>
-                  <line class="pre" x1="678" x2="678" y1="240" y2="100" style="--i:4"/>
-                  <line class="frag" x1="686" x2="686" y1="240" y2="176" style="--i:5"/>
-                  <line class="frag" x1="692" x2="692" y1="240" y2="208" style="--i:6"/>
-                  <line class="frag" x1="700" x2="700" y1="240" y2="198" style="--i:7"/>
-                  <line class="pre" x1="706" x2="706" y1="240" y2="150" style="--i:8"/>
-                  <line class="frag" x1="712" x2="712" y1="240" y2="184" style="--i:9"/>
-                  <line class="frag" x1="720" x2="720" y1="240" y2="210" style="--i:10"/>
-                  <line class="frag" x1="726" x2="726" y1="240" y2="196" style="--i:11"/>
-                  <line class="pre" x1="732" x2="732" y1="240" y2="118" style="--i:12"/>
-                  <line class="frag" x1="740" x2="740" y1="240" y2="204" style="--i:13"/>
-                  <line class="frag" x1="746" x2="746" y1="240" y2="214" style="--i:14"/>
+                <path class="axis" d="M250 76V236H462"/>
+                <g class="bars ms1">
+<line x1="262" x2="262" y1="236" y2="184" style="--i:0"/>
+<line x1="276" x2="276" y1="236" y2="144" style="--i:1"/>
+<line x1="292" x2="292" y1="236" y2="172" style="--i:2"/>
+<line x1="306" x2="306" y1="236" y2="118" style="--i:3"/>
+<line x1="322" x2="322" y1="236" y2="196" style="--i:4"/>
+<line x1="338" x2="338" y1="236" y2="94" style="--i:5"/>
+<line x1="354" x2="354" y1="236" y2="166" style="--i:6"/>
+<line x1="372" x2="372" y1="236" y2="138" style="--i:7"/>
+<line x1="388" x2="388" y1="236" y2="190" style="--i:8"/>
+<line x1="404" x2="404" y1="236" y2="110" style="--i:9"/>
+<line x1="420" x2="420" y1="236" y2="176" style="--i:10"/>
+<line x1="436" x2="436" y1="236" y2="148" style="--i:11"/>
+<line x1="450" x2="450" y1="236" y2="198" style="--i:12"/>
                 </g>
-                <text class="lbl small" x="695" y="258">m/z</text>
-                <text class="lbl" x="650" y="306">MS/MS</text>
+                <text x="356" y="254" text-anchor="middle" class="t-sm t-muted">m/z</text>
+                <text x="356" y="272" text-anchor="middle" class="t-sm t-muted">windows step across the range</text>
+                <path class="flowarrow" d="M468 156H510M505 151l5 5-5 5"/>
+                <text x="626" y="52" text-anchor="middle" class="t-h">MS2 · window fragments</text>
+                <path class="axis" d="M520 76V236H732"/>
+                <g class="bars ms2">
+<line x1="534" x2="534" y1="236" y2="198"/>
+<line x1="545" x2="545" y1="236" y2="166"/>
+<line x1="556" x2="556" y1="236" y2="186"/>
+<line x1="567" x2="567" y1="236" y2="124"/>
+<line x1="578" x2="578" y1="236" y2="176"/>
+<line x1="589" x2="589" y1="236" y2="146"/>
+<line x1="600" x2="600" y1="236" y2="202"/>
+<line x1="611" x2="611" y1="236" y2="110"/>
+<line x1="622" x2="622" y1="236" y2="160"/>
+<line x1="633" x2="633" y1="236" y2="188"/>
+<line x1="644" x2="644" y1="236" y2="134"/>
+<line x1="655" x2="655" y1="236" y2="178"/>
+<line x1="666" x2="666" y1="236" y2="152"/>
+<line x1="677" x2="677" y1="236" y2="196"/>
+<line x1="688" x2="688" y1="236" y2="168"/>
+<line x1="699" x2="699" y1="236" y2="206"/>
+<line x1="710" x2="710" y1="236" y2="180"/>
+                </g>
+                <text x="626" y="254" text-anchor="middle" class="t-sm t-muted">m/z</text>
+                <text x="626" y="272" text-anchor="middle" class="t-sm t-muted">everything in the window is</text>
+                <text x="626" y="288" text-anchor="middle" class="t-sm t-muted">fragmented and measured together</text>
+                <text x="380" y="330" text-anchor="middle" class="t-sm t-b">Repeated for every fraction, so each protein gets an abundance in each fraction</text>
+              </g>
+
+              <!-- 7 and 8 · heat map shared by both analysis steps -->
+              <g class="sc sc78">
+                <text x="198" y="40" text-anchor="middle" class="t-h">Protein × fraction</text>
+<text class="rl xa" x="76" y="87" text-anchor="end">A</text>
+<rect class="hm ra" x="90" y="70" width="34" height="24" rx="3" style="--o:0.55;--j:0"/>
+<rect class="hm ra" x="126" y="70" width="34" height="24" rx="3" style="--o:1;--j:1"/>
+<rect class="hm ra" x="162" y="70" width="34" height="24" rx="3" style="--o:0.25;--j:2"/>
+<rect class="hm ra" x="198" y="70" width="34" height="24" rx="3" style="--o:0;--j:3"/>
+<rect class="hm ra" x="234" y="70" width="34" height="24" rx="3" style="--o:0;--j:4"/>
+<rect class="hm ra" x="270" y="70" width="34" height="24" rx="3" style="--o:0;--j:5"/>
+<text class="rl xb" x="76" y="113" text-anchor="end">B</text>
+<rect class="hm rb" x="90" y="96" width="34" height="24" rx="3" style="--o:0.6;--j:0"/>
+<rect class="hm rb" x="126" y="96" width="34" height="24" rx="3" style="--o:0.95;--j:1"/>
+<rect class="hm rb" x="162" y="96" width="34" height="24" rx="3" style="--o:0.3;--j:2"/>
+<rect class="hm rb" x="198" y="96" width="34" height="24" rx="3" style="--o:0;--j:3"/>
+<rect class="hm rb" x="234" y="96" width="34" height="24" rx="3" style="--o:0;--j:4"/>
+<rect class="hm rb" x="270" y="96" width="34" height="24" rx="3" style="--o:0;--j:5"/>
+<text class="rl xc" x="76" y="139" text-anchor="end">C</text>
+<rect class="hm rc" x="90" y="122" width="34" height="24" rx="3" style="--o:0.5;--j:0"/>
+<rect class="hm rc" x="126" y="122" width="34" height="24" rx="3" style="--o:1;--j:1"/>
+<rect class="hm rc" x="162" y="122" width="34" height="24" rx="3" style="--o:0.35;--j:2"/>
+<rect class="hm rc" x="198" y="122" width="34" height="24" rx="3" style="--o:0.05;--j:3"/>
+<rect class="hm rc" x="234" y="122" width="34" height="24" rx="3" style="--o:0;--j:4"/>
+<rect class="hm rc" x="270" y="122" width="34" height="24" rx="3" style="--o:0;--j:5"/>
+<text class="rl xd" x="76" y="165" text-anchor="end">D</text>
+<rect class="hm rd" x="90" y="148" width="34" height="24" rx="3" style="--o:0;--j:0"/>
+<rect class="hm rd" x="126" y="148" width="34" height="24" rx="3" style="--o:0.05;--j:1"/>
+<rect class="hm rd" x="162" y="148" width="34" height="24" rx="3" style="--o:0.5;--j:2"/>
+<rect class="hm rd" x="198" y="148" width="34" height="24" rx="3" style="--o:1;--j:3"/>
+<rect class="hm rd" x="234" y="148" width="34" height="24" rx="3" style="--o:0.3;--j:4"/>
+<rect class="hm rd" x="270" y="148" width="34" height="24" rx="3" style="--o:0;--j:5"/>
+<text class="rl xe" x="76" y="191" text-anchor="end">E</text>
+<rect class="hm re" x="90" y="174" width="34" height="24" rx="3" style="--o:0;--j:0"/>
+<rect class="hm re" x="126" y="174" width="34" height="24" rx="3" style="--o:0;--j:1"/>
+<rect class="hm re" x="162" y="174" width="34" height="24" rx="3" style="--o:0.45;--j:2"/>
+<rect class="hm re" x="198" y="174" width="34" height="24" rx="3" style="--o:1;--j:3"/>
+<rect class="hm re" x="234" y="174" width="34" height="24" rx="3" style="--o:0.35;--j:4"/>
+<rect class="hm re" x="270" y="174" width="34" height="24" rx="3" style="--o:0.05;--j:5"/>
+<text class="rl xf" x="76" y="217" text-anchor="end">F</text>
+<rect class="hm rf" x="90" y="200" width="34" height="24" rx="3" style="--o:0;--j:0"/>
+<rect class="hm rf" x="126" y="200" width="34" height="24" rx="3" style="--o:0;--j:1"/>
+<rect class="hm rf" x="162" y="200" width="34" height="24" rx="3" style="--o:0;--j:2"/>
+<rect class="hm rf" x="198" y="200" width="34" height="24" rx="3" style="--o:0.15;--j:3"/>
+<rect class="hm rf" x="234" y="200" width="34" height="24" rx="3" style="--o:1;--j:4"/>
+<rect class="hm rf" x="270" y="200" width="34" height="24" rx="3" style="--o:0.55;--j:5"/>
+<text class="t-sm t-muted" x="107" y="62" text-anchor="middle">1</text>
+<text class="t-sm t-muted" x="143" y="62" text-anchor="middle">2</text>
+<text class="t-sm t-muted" x="179" y="62" text-anchor="middle">3</text>
+<text class="t-sm t-muted" x="215" y="62" text-anchor="middle">4</text>
+<text class="t-sm t-muted" x="251" y="62" text-anchor="middle">5</text>
+<text class="t-sm t-muted" x="287" y="62" text-anchor="middle">6</text>
+                <path class="axis" d="M90 240H306M300 236l6 4-6 4"/>
+                <text x="198" y="258" text-anchor="middle" class="t-sm t-muted">fraction: large → small</text>
+              </g>
+
+              <!-- 7 · Elution profiles -->
+              <g class="sc sc7">
+                <text x="552" y="40" text-anchor="middle" class="t-h">Elution profile of each protein</text>
+                <path class="axis" d="M380 70V226H720"/>
+                <text transform="translate(366 150) rotate(-90)" text-anchor="middle" class="t-sm t-muted">abundance</text>
+                <path class="cv cva" pathLength="1" style="--n:0" d="M398 226C428 226 436 76 458 76C480 76 488 226 518 226"/>
+                <path class="cv cvb" pathLength="1" style="--n:1" d="M402 226C432 226 440 88 462 88C484 88 492 226 522 226"/>
+                <path class="cv cvc" pathLength="1" style="--n:2" d="M394 226C424 226 432 80 454 80C476 80 484 226 514 226"/>
+                <path class="cv cvd" pathLength="1" style="--n:3" d="M510 226C540 226 548 108 570 108C592 108 600 226 630 226"/>
+                <path class="cv cve" pathLength="1" style="--n:4" d="M515 226C545 226 553 118 575 118C597 118 605 226 635 226"/>
+                <path class="cv cvf" pathLength="1" style="--n:5" d="M590 226C616 226 624 146 642 146C660 146 668 226 694 226"/>
+                <g class="pklab">
+                  <text x="458" y="62" text-anchor="middle" class="t-b"><tspan class="xa">A</tspan> <tspan class="xb">B</tspan> <tspan class="xc">C</tspan></text>
+                  <text x="572" y="96" text-anchor="middle" class="t-b"><tspan class="xd">D</tspan> <tspan class="xe">E</tspan></text>
+                  <text x="642" y="134" text-anchor="middle" class="t-b xf">F</text>
+                </g>
+                <text x="400" y="240" text-anchor="middle" class="t-sm t-muted">1</text><text x="455" y="240" text-anchor="middle" class="t-sm t-muted">2</text><text x="510" y="240" text-anchor="middle" class="t-sm t-muted">3</text><text x="565" y="240" text-anchor="middle" class="t-sm t-muted">4</text><text x="620" y="240" text-anchor="middle" class="t-sm t-muted">5</text><text x="675" y="240" text-anchor="middle" class="t-sm t-muted">6</text>
+                <text x="550" y="260" text-anchor="middle" class="t-sm t-muted">fraction: large → small</text>
+                <text x="550" y="292" text-anchor="middle" class="t-sm t-b">A, B and C rise and fall together: they co-elute.</text>
+                <text x="550" y="308" text-anchor="middle" class="t-sm t-muted">F elutes late, at single-protein size.</text>
+              </g>
+
+              <!-- 8 · Interactome -->
+              <g class="sc sc8">
+                <path class="br" d="M314 72V146M314 150V198M314 202V224"/>
+                <text class="br t-sm t-b" x="324" y="113">complex 1</text>
+                <text class="br t-sm t-b" x="324" y="178">complex 2</text>
+                <text class="br t-sm t-muted" x="324" y="217">alone</text>
+                <text x="570" y="40" text-anchor="middle" class="t-h">Inferred interactome</text>
+                <ellipse class="cxo" cx="520" cy="138" rx="80" ry="62"/>
+                <ellipse class="cxo" cx="655" cy="150" rx="62" ry="48"/>
+                <path class="edge" pathLength="1" d="M480 118L560 108M560 108L520 176M520 176L480 118"/>
+                <path class="edge" pathLength="1" d="M620 170L690 128"/>
+                <g class="node" style="--n:0"><circle class="pa" cx="480" cy="118" r="15"/><text x="480" y="123" text-anchor="middle" class="t-b nl">A</text></g>
+                <g class="node" style="--n:1"><circle class="pb" cx="560" cy="108" r="15"/><text x="560" y="113" text-anchor="middle" class="t-b nl">B</text></g>
+                <g class="node" style="--n:2"><circle class="pc" cx="520" cy="176" r="15"/><text x="520" y="181" text-anchor="middle" class="t-b nl">C</text></g>
+                <g class="node" style="--n:3"><circle class="pd" cx="620" cy="170" r="15"/><text x="620" y="175" text-anchor="middle" class="t-b nl">D</text></g>
+                <g class="node" style="--n:4"><circle class="pe" cx="690" cy="128" r="15"/><text x="690" y="133" text-anchor="middle" class="t-b nl">E</text></g>
+                <g class="node" style="--n:5"><circle class="pf" cx="650" cy="222" r="15"/><text x="650" y="227" text-anchor="middle" class="t-b nl">F</text></g>
+                <text x="570" y="268" text-anchor="middle" class="t-sm t-b">Proteins with matching profiles are linked.</text>
+                <text x="570" y="284" text-anchor="middle" class="t-sm t-muted">Each edge is a candidate physical interaction.</text>
               </g>
             </svg>
           </div>
           <div class="stepper" role="group" aria-label="SEC-MS workflow steps">
-            <button class="step-btn" type="button" data-step="1" aria-pressed="true"><b>1</b> Infect</button>
-            <button class="step-btn" type="button" data-step="2" aria-pressed="false"><b>2</b> Lyse</button>
-            <button class="step-btn" type="button" data-step="3" aria-pressed="false"><b>3</b> Fractionate</button>
-            <button class="step-btn" type="button" data-step="4" aria-pressed="false"><b>4</b> Separate</button>
-            <button class="step-btn" type="button" data-step="5" aria-pressed="false"><b>5</b> Measure</button>
+<button class="step-btn" type="button" data-step="1" aria-pressed="true"><b>1</b> Infect</button>
+<button class="step-btn" type="button" data-step="2" aria-pressed="false"><b>2</b> Lyse</button>
+<button class="step-btn" type="button" data-step="3" aria-pressed="false"><b>3</b> Load column</button>
+<button class="step-btn" type="button" data-step="4" aria-pressed="false"><b>4</b> Elute by size</button>
+<button class="step-btn" type="button" data-step="5" aria-pressed="false"><b>5</b> Digest + LC</button>
+<button class="step-btn" type="button" data-step="6" aria-pressed="false"><b>6</b> MS/MS</button>
+<button class="step-btn" type="button" data-step="7" aria-pressed="false"><b>7</b> Profiles</button>
+<button class="step-btn" type="button" data-step="8" aria-pressed="false"><b>8</b> Interactome</button>
             <button class="play-btn" type="button" aria-label="Pause animation"></button>
           </div>
           <div class="step-caption" aria-live="polite">
             <h4>Infect</h4>
-            <p>A bacterial culture is infected with phage, and the cells are harvested at a chosen time after infection.</p>
+            <p>A culture of bacteria is infected with phage. Each phage attaches to a cell and injects its genome, and the cells are harvested at a chosen time after infection.</p>
+            <a class="app-link" href="https://drphagefordays.github.io/Ghost-in-the-Spectrum/" target="_blank" rel="noopener" hidden>Explore this analysis in the SEC-DIA Explorer app →</a>
           </div>
         </div>
       </div>

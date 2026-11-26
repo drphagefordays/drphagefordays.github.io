@@ -108,7 +108,7 @@
     var btns = [].slice.call(card.querySelectorAll('.step-btn'));
     var capEl = card.querySelector('.step-caption');
     var capT = capEl.querySelector('h4'), capP = capEl.querySelector('p');
-    var playBtn = card.querySelector('.play-btn'), capTools = card.querySelector('.step-tools');
+    var playBtn = card.querySelector('.play-btn'), capTools = card.querySelector('.step-tools'), linkEl = card.querySelector('.app-link');
     var cur = 1, timer = null, inView = false, userPaused = false;
     function setStep(n) {
       cur = n;
@@ -120,11 +120,15 @@
         capTools.textContent = '';
         copy[n - 1][2].forEach(function (t) { var s = doc.createElement('span'); s.className = 'chip'; s.textContent = t; capTools.appendChild(s); });
       }
+      if (linkEl) linkEl.hidden = !copy[n - 1][4];
+    }
+    function schedule() {
+      timer = setTimeout(function () { setStep(cur % N + 1); schedule(); }, copy[cur - 1][3] || interval);
     }
     function sync() {
       var should = inView && !userPaused && !reduce;
-      if (should && !timer) timer = setInterval(function () { setStep(cur % N + 1); }, interval);
-      else if (!should && timer) { clearInterval(timer); timer = null; }
+      if (should && !timer) schedule();
+      else if (!should && timer) { clearTimeout(timer); timer = null; }
       capEl.setAttribute('aria-live', timer ? 'off' : 'polite'); // avoid screen-reader chatter while auto-playing
       playBtn.classList.toggle('paused', !timer);
       playBtn.setAttribute('aria-label', timer ? 'Pause animation' : 'Play animation');
@@ -160,12 +164,15 @@
   ], 4300);
 
   initStepper(doc.querySelector('.sec-card'), [
-    ['Infect', 'A bacterial culture is infected with phage, and the cells are harvested at a chosen time after infection.'],
-    ['Lyse', 'The cells are lysed under native conditions so that protein complexes stay intact, leaving a mixture of host and phage proteins of every size.'],
-    ['Fractionate by size', 'Size-exclusion chromatography on an HPLC system separates the lysate by size. Large complexes elute first and small proteins last, and the eluate is collected as fractions.'],
-    ['Separate peptides', 'Each fraction is digested into peptides, which are separated on a reverse-phase LC column by a rising solvent gradient.'],
-    ['Measure by MS/MS', 'Peptides are ionised into the mass spectrometer. In data-independent acquisition (DIA), everything in each m/z window is fragmented in turn, so every peptide in every fraction is measured. Proteins that peak in the same fractions are candidate members of the same complex.']
-  ], 5600);
+    ['1 · Infect', 'A culture of bacteria is infected with phage. Each phage attaches to a cell and injects its genome, and the cells are harvested at a chosen time after infection.', null, 5200],
+    ['2 · Lyse', 'The cells are lysed under native conditions so protein complexes stay intact. The lysate is a mixture of everything the cell holds: large multi-protein complexes, smaller complexes and single proteins. Each colour is a different protein.', null, 6800],
+    ['3 · Load the column', 'The lysate is injected onto a size-exclusion column, a tube packed with porous beads. Single proteins can enter the pores and take a long path through the column. Large complexes cannot, so they take a short path.', null, 7600],
+    ['4 · Elute by size', 'Large complexes come off first and single proteins last. The eluate is collected as fractions, so the early fractions hold large complexes, which means several different proteins together, and the late fractions hold single proteins.', null, 8600],
+    ['5 · Digest and run LC', 'In every fraction the proteins are digested into peptides, which are separated by reverse-phase LC. This separates peptides by hydrophobicity, not size. The size information comes from which fraction they were in.', null, 7600],
+    ['6 · Measure by MS/MS', 'The peptides are ionised into the mass spectrometer. In data-independent acquisition (DIA), the instrument steps through the mass range in windows and fragments everything in each window, so the proteins in every fraction are identified and quantified.', null, 7600],
+    ['7 · Elution profiles', 'Combining the fractions gives every protein an elution profile: its abundance from the largest fraction to the smallest. Proteins in the same complex rise and fall together, as A, B and C do here, while a protein on its own, like F, elutes late at single-protein size.', null, 8200],
+    ['8 · The interactome', 'Deconvolution compares the profiles of every protein. Proteins that co-elute, particularly earlier than their single-protein size predicts, are grouped into complexes and joined by edges. The result is a map of protein interactions, the interactome, which is the goal of the experiment.', null, 10000, true]
+  ], 7000);
 
   /* ---------- hero scene: molecules, bacteria and phage infections ---------- */
   var canvas = doc.getElementById('net');
